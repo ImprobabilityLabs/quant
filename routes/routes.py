@@ -39,7 +39,7 @@ def configure_routes(app):
 
     @app.route('/', methods=['GET', 'POST'])
     def index_page():
-        return render_template('index.html', seometa=MetaTags)
+        return render_template('index.html', seometa=MetaTags, output_analysis=None)
 
     @app.route('/contact', methods=['GET', 'POST'])
     def contact_page():
