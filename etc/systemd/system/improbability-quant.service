@@ -1,0 +1,15 @@
+[Unit]
+Description=Improbability Quant 
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/gunicorn -b :8001 -w 4 --chdir /opt/improbability/quant --timeout 30 --keep-alive 5 -k gthread app:app
+WorkingDirectory=/opt/improbability/quant
+User=root
+Group=root
+EnvironmentFile=/etc/improbability/exports_quant
+PassEnvironment=LOG_PATH SECRET_KEY GOOGLE_ANALYTICS_ID GOOGLE_SITE_VERIFICATION BING_SITE_VERIFICATION 
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
