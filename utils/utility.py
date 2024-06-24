@@ -34,7 +34,19 @@ def check_openai_key(api_key):
 
 
 def get_stock_data(ticker, interval):
+    """
+    Downloads and calculates various technical indicators for stock data.
 
+    Parameters:
+    ticker (str): The stock ticker.
+    interval (str): The interval of the stock data.
+
+    Returns:
+    tuple: A tuple containing:
+           - DataFrame with the data or None if an error occurs,
+           - a boolean indicating success,
+           - an error message if applicable.
+    """
     if interval == '1d':
         period = "1y"
         trim_len = 80
@@ -44,52 +56,36 @@ def get_stock_data(ticker, interval):
     elif interval == '1mo':
         period = '10y'
         trim_len = 0
-
-    # Download historical data for the stock
-    data = yf.download(ticker, period=period, interval=interval)
-
-    # Check if the data is empty
-    if data.empty:
-        print("No data found for the ticker.")
-        return False
-
-    # Calculate ADX, MACD, RSI, and Bollinger Bands
-    data.ta.adx(append=True)
-    #data.ta.macd(append=True)
-    data.ta.rsi(append=True)
-
-    # Adding Stochastic Oscillator
-    data.ta.stoch(append=True)
-
-    # Adding MACD Histogram
-    data.ta.macd(append=True, histogram=True)
-
-    # Adding On-Balance Volume
-    data.ta.obv(append=True)
-
-    # Adding Aroon Indicator
-    data.ta.aroon(append=True)
-
-    # Adding Commodity Channel Index
-    data.ta.cci(append=True)
-
-    # Adding Parabolic SAR
-    data.ta.psar(append=True)
-
-    # Adding Ichimoku Cloud
-    data.ta.ichimoku(append=True)
-
-
-    # Round all numeric fields to two decimal places
-    data = data.round(2)
-
-    # Trim the first 80 rows
-    if len(data) > trim_len:
-        data = data.iloc[trim_len:]
     else:
-        print(f"The dataset contains less than {str(trim_len)} rows. No rows will be trimmed.")
-        return False
+        return None, False, "Invalid interval specified."
 
-    # Print the data with indicators
-    return(data, ticker)
+    try:
+        # Download historical data for the stock
+        data = yf.download(ticker, period=period, interval=interval)
+        if data.empty:
+            return None, False, "No data found for the ticker."
+
+        # Calculate ADX, RSI, Stochastic Oscillator, MACD, OBV, Aroon, CCI, Parabolic SAR, and Ichimoku Cloud
+        data.ta.adx(append=True)
+        data.ta.rsi(append=True)
+        data.ta.stoch(append=True)
+        data.ta.macd(append=True, histogram=True)
+        data.ta.obv(append=True)
+        data.ta.aroon(append=True)
+        data.ta.cci(append=True)
+        data.ta.psar(append=True)
+        data.ta.ichimoku(append=True)
+
+        # Round all numeric fields to two decimal places
+        data = data.round(2)
+
+        # Trim the first set of rows if applicable
+        if len(data) > trim_len:
+            data = data.iloc[trim_len:]
+
+    except Exception as e:
+        return None, False, str(e)
+
+    return data, True, "Data successfully retrieved and processed."
+
 
