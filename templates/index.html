@@ -137,7 +137,7 @@
               <div class="col-xs-12 col-md-6">
                 <div class="form-group form-type-text">
                   <label for="api-key">OpenAI API Key</label>
-                  <input id="api-key" name="api-key" class="form-control" placeholder="Enter OpenAI API Key" required type="text">
+                  <input id="api-key" name="api-key" class="form-control" placeholder="Enter OpenAI API Key" required type="text" value="{{ form_data.get('api-key', '') }}">
                 </div>
               </div>
               <!-- Stock Selection Dropdown -->
@@ -145,9 +145,10 @@
                 <div class="form-group form-type-select">
                   <label for="ai-model">Select AI Model</label>
                   <select id="ai-model" name="ai-model" class="form-control" required>
-                    <option value="gpt-4o">OpenAI GPT-4o (Cheapest)</option>
-                    <option value="gpt-4-turbo">OpenAI GPT-4 Turbo</option>
-                    <option value="gpt-4">OpenAI GPT-4 (Most Expensive)</option>
+                    <option {% if form_data.get('ai-model') == None %}selected {% endif %}disabled>Please select an AI Model</option>
+                    <option value="gpt-4o" {% if form_data.get('ai-model') == 'gpt-4o' %}selected{% endif %}>OpenAI GPT-4o (Cheapest)</option>
+                    <option value="gpt-4-turbo" {% if form_data.get('ai-model') == 'gpt-4-turbo' %}selected{% endif %}>OpenAI GPT-4 Turbo</option>
+                    <option value="gpt-4" {% if form_data.get('ai-model') == 'gpt-4' %}selected{% endif %}>OpenAI GPT-4 (Most Expensive)</option>
                   </select>
                 </div>
               </div>
@@ -155,17 +156,18 @@
               <div class="col-xs-12 col-md-6">
                 <div class="form-group form-type-select">
                   <label for="stock-ticker">Stock Ticker</label>
-                  <input id="stock-ticker" name="stock-ticker" class="form-control" placeholder="Enter a US Stock Symbol" required type="text">
+                  <input id="stock-ticker" name="stock-ticker" class="form-control" placeholder="Enter a US Stock Symbol" required type="text" value="{{ form_data.get('stock-ticker', '') }}">
                 </div>
               </div>
               <!-- Period Selection Dropdown -->
               <div class="col-xs-12 col-md-6">
                 <div class="form-group form-type-select">
-                  <label for="period">Period</label>
-                  <select id="period" name="period" class="form-control" required>
-                    <option value="1d">Daily</option>
-                    <option value="1wk">Weekly</option>
-                    <option value="1mo">Monthly</option>
+                  <label for="stock-period">Period</label>
+                  <select id="stock-period" name="stock-period" class="form-control" required>
+                    <option {% if form_data.get('stock-period') == None %}selected {% endif %}disabled>Please select a Period</option>
+                    <option value="1d" {% if form_data.get('stock-period') == '1d' %}selected{% endif %}>Daily</option>
+                    <option value="1wk" {% if form_data.get('stock-period') == '1wk' %}selected{% endif %}>Weekly</option>
+                    <option value="1mo" {% if form_data.get('stock-period') == '1mo' %}selected{% endif %}>Monthly</option>
                   </select>
                 </div>
               </div>
@@ -185,7 +187,8 @@
           <div style="color: red; border: 1px solid red; padding: 10px;">
             <p><strong>Please correct the following errors:</strong></p>
             <ul>
-              <li>{{ error }}</li>
+              {% if api_error %}<li>{{ api_error }}</li>{% endif %}
+              {% if stock_error %}<li>{{ stock_error }}</li>{% endif %}
             </ul>
           </div>
           {% endif %}
