@@ -39,7 +39,11 @@ def configure_routes(app):
 
     @app.route('/', methods=['GET', 'POST'])
     def index_page():
-        return render_template('index.html', seometa=MetaTags, output_analysis=None)
+        error = None
+        api_error = None
+        stock_error = None
+        input_error = None
+        return render_template('index.html', seometa=MetaTags, output_analysis=None, form_data=request.form, error=error, api_error=api_error, stock_error=stock_error, input_error=input_error)
 
     @app.route('/contact', methods=['GET', 'POST'])
     def contact_page():
