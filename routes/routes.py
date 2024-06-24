@@ -49,12 +49,12 @@ def configure_routes(app):
                 current_app.logger.info(f'{key}: {request.form[key]}')
             # Validate form data
             required_fields = [
-                'subscriptionOption', 'assistant-name', 'assistant-origin', 'assistant-gender',
-                'assistant-personality', 'assistant-response-style', 'user-name', 'user-location', 
-                'user-mobile', 'user-language', 'user-title', 'user-measurement', 'user-description', 
+                'api-key', 'ai-model', 'stock-ticker', 'stock-period'
             ]
             if all(field in request.form for field in required_fields):
-                print("hi")
+                if not check_openai_key(request.form['api-key']):
+                    error = True
+                    api_error = 'Invalid API Key. Please enter a valid API key.'
             else:
                 error = True
                 input_error = 'Please complete all required fields.'
