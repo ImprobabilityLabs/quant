@@ -39,12 +39,10 @@ def configure_routes(app):
 
     @app.route('/', methods=['GET', 'POST'])
     def index_page():
-        current_app.logger.info('Info: Index Page - Member Object: ' + str(member))
         return render_template('index.html', seometa=MetaTags)
 
     @app.route('/contact', methods=['GET', 'POST'])
     def contact_page():
-        current_app.logger.info('Info: Contact Page - Member Object: ' + str(member))
         return render_template('contact.html', seometa=MetaTags)
 
     @sitemap.register_generator
