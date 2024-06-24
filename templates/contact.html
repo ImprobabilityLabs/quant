@@ -9,19 +9,19 @@
     <meta name="keywords" content="{{ seometa.KEYWORDS }}">
     <meta name="webmaster" content="{{ seometa.WEBMASTER }}">	  
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Improbability Labs Inc. - SMS AI Assistant">
+    <meta property="og:title" content="Improbability Labs Inc. - {{ seometa.PRODUCT_NAME }}">
     <meta property="og:description" content="{{ seometa.DESCRIPTION }}">
     <meta property="og:image" content="{{ url_for('static', filename='images/improbability-labs.png') }}">
     <meta property="og:url" content="{{ request.url_root[:-1] }}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Improbability Labs Inc. - SMS AI Assistant">
+    <meta name="twitter:title" content="Improbability Labs Inc. - {{ seometa.PRODUCT_NAME }}">
     <meta name="twitter:description" content="{{ seometa.DESCRIPTION }}">
     <meta name="twitter:image" content="{{ url_for('static', filename='images/improbability-labs.png') }}">
     <link rel="canonical" href="https://{{ seometa.HOST_NAME }}/contact">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
-    <title>Improbability Labs Inc. - SMS AI Assistant - Contact</title>{% if google_analytics_id %}
+    <title>Improbability Labs Inc. - {{ seometa.PRODUCT_NAME }} - Contact</title>{% if google_analytics_id %}
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ google_analytics_id }}"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -36,7 +36,7 @@
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "Improbability Labs Inc. - SMS AI Assistant",
+      "name": "Improbability Labs Inc. - {{ seometa.PRODUCT_NAME }}",
       "url": "{{ request.url_root[:-1] }}",
       "sameAs": [
         {% if seometa.LINKEDIN %}"{{ seometa.LINKEDIN }}"{% endif %}{% if seometa.LINKEDIN and (seometa.TWITTER or seometa.FACEBOOK) %},{% endif %}
@@ -78,7 +78,7 @@
       <a class="brand" href="{{ seometa.ORG_URL }}" rel="home" title="Improbability Labs Inc.">
         <div class="brand-name">
           <img class="img-responsive" src="{{ url_for('static', filename='images/improbability-labs.webp') }}">
-          <span class="brand-text">Improbability Labs - SMS AI Assistant</span>
+          <span class="brand-text">Improbability Labs - {{ seometa.PRODUCT_NAME }}t</span>
         </div>
       </a>
       <!-- Navigation Bar -->
