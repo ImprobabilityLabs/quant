@@ -43,6 +43,22 @@ def configure_routes(app):
         api_error = None
         stock_error = None
         input_error = None
+        if request.method == 'POST':
+            current_app.logger.info('Received POST request with following form data:')
+            for key in request.form:
+                current_app.logger.info(f'{key}: {request.form[key]}')
+            # Validate form data
+            required_fields = [
+                'subscriptionOption', 'assistant-name', 'assistant-origin', 'assistant-gender',
+                'assistant-personality', 'assistant-response-style', 'user-name', 'user-location', 
+                'user-mobile', 'user-language', 'user-title', 'user-measurement', 'user-description', 
+            ]
+            if all(field in request.form for field in required_fields):
+                print("hi")
+            else:
+                error = True
+                input_error = 'Please complete all required fields.'
+                
         return render_template('index.html', seometa=MetaTags, output_analysis=None, form_data=request.form, error=error, api_error=api_error, stock_error=stock_error, input_error=input_error)
 
     @app.route('/contact', methods=['GET', 'POST'])
