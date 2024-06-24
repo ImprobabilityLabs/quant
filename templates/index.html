@@ -9,19 +9,19 @@
     <meta name="keywords" content="{{ seometa.KEYWORDS }}">
     <meta name="webmaster" content="{{ seometa.WEBMASTER }}">	  
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Improbability Labs Inc. - SMS AI Assistant">
+    <meta property="og:title" content="Improbability Labs Inc. - {{ seometa.PRODUCT_NAME }}">
     <meta property="og:description" content="{{ seometa.DESCRIPTION }}">
     <meta property="og:image" content="{{ url_for('static', filename='images/improbability-labs.png') }}">
     <meta property="og:url" content="{{ request.url_root[:-1] }}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Improbability Labs Inc. - SMS AI Assistant">
+    <meta name="twitter:title" content="Improbability Labs Inc. - {{ seometa.PRODUCT_NAME }}">
     <meta name="twitter:description" content="{{ seometa.DESCRIPTION }}">
     <meta name="twitter:image" content="{{ url_for('static', filename='images/improbability-labs.png') }}">
-    <link rel="canonical" href="https://sms.improbability.io/">
+    <link rel="canonical" href="https://{{ seometa.HOST_NAME }}/">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
-    <title>Improbability Labs Inc. - SMS AI Assistant</title>{% if google_analytics_id %}
+    <title>Improbability Labs Inc. - {{ seometa.PRODUCT_NAME }}</title>{% if google_analytics_id %}
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ google_analytics_id }}"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -92,9 +92,7 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-        {% for item in menu %}
-          <li><a href="{{ item.url }}">{{ item.name }}</a></li>
-        {% endfor %}
+          <li><a href="/contact">Contact Us</a></li>
         </ul>
       </div>
     </div>
