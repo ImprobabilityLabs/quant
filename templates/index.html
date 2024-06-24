@@ -254,7 +254,7 @@
     <script src="{{ url_for('static', filename='js/ie10-viewport-bug-workaround.js') }}"></script>
     <script src="{{ url_for('static', filename='js/improbability.js') }}"></script>
     <script>
-    let markdownText = '{{output-analysis}}';
+    let markdownText = '{{output_analysis}}';
     let htmlText = marked(markdownText);
     document.getElementById('improbability-analysis-result').innerHTML = '<p>'+htmlText+'</p>';
 </script>
