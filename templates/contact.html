@@ -17,7 +17,7 @@
     <meta name="twitter:title" content="Improbability Labs Inc. - SMS AI Assistant">
     <meta name="twitter:description" content="{{ seometa.DESCRIPTION }}">
     <meta name="twitter:image" content="{{ url_for('static', filename='images/improbability-labs.png') }}">
-    <link rel="canonical" href="https://sms.improbability.io/contact">
+    <link rel="canonical" href="https://{{ seometa.HOST_NAME }}/contact">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
@@ -75,7 +75,7 @@
 <div class="headbar">
   <div class="container">
     <div class="wrapper">
-      <a class="brand" href="/" rel="home" title="Improbability Labs Inc.">
+      <a class="brand" href="{{ seometa.ORG_URL }}" rel="home" title="Improbability Labs Inc.">
         <div class="brand-name">
           <img class="img-responsive" src="{{ url_for('static', filename='images/improbability-labs.webp') }}">
           <span class="brand-text">Improbability Labs - SMS AI Assistant</span>
@@ -92,9 +92,8 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-        {% for item in menu %}
-          <li><a href="{{ item.url }}">{{ item.name }}</a></li>
-        {% endfor %}
+          <li><a href="/">Home</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
       </div>
     </div>
