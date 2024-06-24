@@ -221,5 +221,17 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{{ url_for('static', filename='js/ie10-viewport-bug-workaround.js') }}"></script>
     <script src="{{ url_for('static', filename='js/improbability.js') }}"></script>
+    <script>
+    function updateTextBasedOnScreenSize() {
+        var brandText = document.getElementById('brandText');
+        if (window.innerWidth < 550) {
+            brandText.textContent = '{{ seometa.PRODUCT_NAME }}';
+        } else {
+            brandText.textContent = 'Improbability Labs - {{ seometa.PRODUCT_NAME }}';
+        }
+    }
+    window.addEventListener('resize', updateTextBasedOnScreenSize);
+    updateTextBasedOnScreenSize();
+    </script>
   </body>
 </html>
