@@ -1,8 +1,8 @@
 class MetaTags:
     PRODUCT_NAME = "The Quant"
     HOST_NAME = "quant.improbability.io"
-    KEYWORDS = "AI SMS Chatbot, AI Assistant, What is AI assistance, Personal AI Assistant, AI Assistant App, SMS, SMS AI, AI Assisted Text Messaging, AI Text Messaging, Pocket AI, SMS Chatbot, SMS AI Chatbot, AI Text Message Assistant, Custom AI assistant, Multilingual AI, No Data AI, Improbability Labs, Improbability"
-    DESCRIPTION = "Your pocket AI companion - Explore, learn, decide—anywhere, anytime with your SMS AI Assistant. No internet? No problem! Personalized AI at your fingertips. Sign up for your personalized Ai Assistant today!"
+    KEYWORDS = "AI-driven stock analysis, technical analysis, Quant stock tool, OpenAI stock prediction, AI stock forecasting, quantitative stock analysis, technical analysis AI, daily stock analysis, stock forecast, trading strategy, AI investment advice, stock performance AI, financial AI tools, Quant, AI analysis, OHLCV, stock ticker AI, Improbability Labs, Improbability"
+    DESCRIPTION = "Access advanced AI stock predictions with Quant by Improbability Labs Inc. Discover our free, AI-powered technical analysis tool that leverages your own OpenAI key for personalized, accurate market insights."
     LINKEDIN = "https://www.linkedin.com/company/improbability-labs/"
     TWITTER = "https://twitter.com/ImprobLabs"
     FACEBOOK = None
