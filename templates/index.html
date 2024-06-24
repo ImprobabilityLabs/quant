@@ -82,7 +82,7 @@
           <a class="brand" href="{{ seometa.ORG_URL }}" rel="home" title="Improbability Labs Inc.">
             <div class="brand-name">
               <img class="img-responsive" src="{{ url_for('static', filename='images/improbability-labs.webp') }}">
-              <span class="brand-text">Improbability Labs - {{ seometa.PRODUCT_NAME }}</span>
+              <span id="brandText" class="brand-text">Improbability Labs - {{ seometa.PRODUCT_NAME }}</span>
             </div>
           </a>
           <!-- Navigation Bar -->
@@ -254,9 +254,21 @@
     <script src="{{ url_for('static', filename='js/ie10-viewport-bug-workaround.js') }}"></script>
     <script src="{{ url_for('static', filename='js/improbability.js') }}"></script>
     <script>
-    let markdownText = '{{output_analysis}}';
-    let htmlText = marked(markdownText);
-    document.getElementById('improbability-analysis-result').innerHTML = '<p>'+htmlText+'</p>';
-</script>
+      let markdownText = '{{output_analysis}}';
+      let htmlText = marked(markdownText);
+      document.getElementById('improbability-analysis-result').innerHTML = '<p>'+htmlText+'</p>';
+    </script>
+    <script>
+    function updateTextBasedOnScreenSize() {
+        var brandText = document.getElementById('brandText');
+        if (window.innerWidth < 550) {
+            brandText.textContent = '{{ seometa.PRODUCT_NAME }}';
+        } else {
+            brandText.textContent = 'Improbability Labs - {{ seometa.PRODUCT_NAME }}';
+        }
+    }
+    window.addEventListener('resize', updateTextBasedOnScreenSize);
+    updateTextBasedOnScreenSize();
+    </script>
   </body>
 </html>
