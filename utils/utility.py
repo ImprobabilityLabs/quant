@@ -57,6 +57,7 @@ def get_stock_data(ticker, interval):
         period = '10y'
         trim_len = 0
     else:
+        current_app.logger.info(f'get_stock_data: error: Invalid interval specified.')
         return None, False, "Invalid interval specified."
 
     try:
@@ -84,8 +85,10 @@ def get_stock_data(ticker, interval):
             data = data.iloc[trim_len:]
 
     except Exception as e:
+        current_app.logger.info(f'get_stock_data: error: {str(e)}')
         return None, False, str(e)
 
+    current_app.logger.info(f'get_stock_data: data: {str(data)}')
     return data, True, "Data successfully retrieved and processed."
 
 
