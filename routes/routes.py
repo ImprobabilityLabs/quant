@@ -44,6 +44,7 @@ def configure_routes(app):
         api_error = None
         stock_error = None
         input_error = None
+        output_analysis = None
         if request.method == 'POST':
             current_app.logger.info('Received POST request with following form data:')
             for key in request.form:
@@ -70,7 +71,7 @@ def configure_routes(app):
                 else:
                     datacsv = data.to_csv()
                     output_analysis = open_ai_anaysis(api_key, model, ticker, datacsv)
-        return render_template('index.html', seometa=MetaTags, output_analysis=None, form_data=request.form, error=error, api_error=api_error, stock_error=stock_error, input_error=input_error)
+        return render_template('index.html', seometa=MetaTags, output_analysis=output_analysis, form_data=request.form, error=error, api_error=api_error, stock_error=stock_error, input_error=input_error)
 
     @app.route('/contact', methods=['GET', 'POST'])
     def contact_page():
