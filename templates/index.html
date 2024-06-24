@@ -7,7 +7,7 @@
     <meta name="author" content="{{ seometa.AUTHOR }}">
     <meta name="description" content="{{ seometa.DESCRIPTION }}">
     <meta name="keywords" content="{{ seometa.KEYWORDS }}">
-    <meta name="webmaster" content="{{ seometa.WEBMASTER }}">	  
+    <meta name="webmaster" content="{{ seometa.WEBMASTER }}">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Improbability Labs Inc. - {{ seometa.PRODUCT_NAME }}">
     <meta property="og:description" content="{{ seometa.DESCRIPTION }}">
@@ -21,42 +21,45 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
-    <title>Improbability Labs Inc. - {{ seometa.PRODUCT_NAME }}</title>{% if google_analytics_id %}
+    <title>Improbability Labs Inc. - {{ seometa.PRODUCT_NAME }}</title>
+    {% if google_analytics_id %}
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ google_analytics_id }}"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', '{{ google_analytics_id }}');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', '{{ google_analytics_id }}');
     </script>{% endif %}{% if google_site_verification %}
-    <meta name="google-site-verification" content="{{ google_site_verification }}">{% endif %}{% if bing_site_verification %}
-    <meta name="msvalidate.01" content="{{ bing_site_verification }}">{% endif %}
+    <meta name="google-site-verification" content="{{ google_site_verification }}">
+    {% endif %}{% if bing_site_verification %}
+    <meta name="msvalidate.01" content="{{ bing_site_verification }}">
+    {% endif %}
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Improbability Labs Inc. - SMS AI Assistant",
-      "url": "{{ request.url_root[:-1] }}",
-      "sameAs": [
-        {% if seometa.LINKEDIN %}"{{ seometa.LINKEDIN }}"{% endif %}{% if seometa.LINKEDIN and (seometa.TWITTER or seometa.FACEBOOK) %},{% endif %}
-        {% if seometa.TWITTER %}"{{ seometa.TWITTER }}"{% endif %}{% if seometa.TWITTER and seometa.FACEBOOK %},{% endif %}
-        {% if seometa.FACEBOOK %}"{{ seometa.FACEBOOK }}"{% endif %}
-      ]
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Improbability Labs Inc. - SMS AI Assistant",
+        "url": "{{ request.url_root[:-1] }}",
+        "sameAs": [
+          {% if seometa.LINKEDIN %}"{{ seometa.LINKEDIN }}"{% endif %}{% if seometa.LINKEDIN and (seometa.TWITTER or seometa.FACEBOOK) %},{% endif %}
+          {% if seometa.TWITTER %}"{{ seometa.TWITTER }}"{% endif %}{% if seometa.TWITTER and seometa.FACEBOOK %},{% endif %}
+          {% if seometa.FACEBOOK %}"{{ seometa.FACEBOOK }}"{% endif %}
+        ]
+      }
     </script>
     <script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "Organization",
-      "name": "Improbability Labs Inc.",
-      "url": "{{ seometa.ORG_URL }}",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "{{ seometa.WEBMASTER }}",
-        "contactType": "customer service"
+      {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "Improbability Labs Inc.",
+        "url": "{{ seometa.ORG_URL }}",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "{{ seometa.WEBMASTER }}",
+          "contactType": "customer service"
+        }
       }
-    }
     </script>	
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -72,128 +75,126 @@
     <link href="{{ url_for('static', filename='css/improbability.css') }}" rel="stylesheet">
   </head>
   <body>
-<div class="headbar">
-  <div class="container">
-    <div class="wrapper">
-      <a class="brand" href="{{ seometa.ORG_URL }}" rel="home" title="Improbability Labs Inc.">
-        <div class="brand-name">
-          <img class="img-responsive" src="{{ url_for('static', filename='images/improbability-labs.webp') }}">
-          <span class="brand-text">Improbability Labs - {{ seometa.PRODUCT_NAME }}</span>
+    <div class="headbar">
+      <div class="container">
+        <div class="wrapper">
+          <a class="brand" href="{{ seometa.ORG_URL }}" rel="home" title="Improbability Labs Inc.">
+            <div class="brand-name">
+              <img class="img-responsive" src="{{ url_for('static', filename='images/improbability-labs.webp') }}">
+              <span class="brand-text">Improbability Labs - {{ seometa.PRODUCT_NAME }}</span>
+            </div>
+          </a>
+          <!-- Navigation Bar -->
+          <div class="navbar-header pull-right">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span the="icon-bar"></span>
+            </button>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/">Home</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
         </div>
-      </a>
-      <!-- Navigation Bar -->
-      <div class="navbar-header pull-right">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span the="icon-bar"></span>
-        </button>
       </div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="/">Home</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
+      <div class="topbar">
+        <img height="10" src="data:image/gif;base64,R0lGODlhEAAQANUAAC8nhjAnhi08lC8riDEbfi8nhSxGmzEWejAfgCxHmy40ji45kjEYezAjhCxImi44ki4wiy45kS8viyxDmDAigixHmi8wiy08ky09kyxEmC44kC1AlixGmi44kS09lC1AlzEWezAfgS8wjC8riTEbfzAjgy40jyxInDEYfCxEmSxImwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4zLWMwMTEgNjYuMTQ1NjYxLCAyMDEyLzAyLzA2LTE0OjU2OjI3ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3QTFCQkUxQTQxRUYxMUU3OTVFMThBMURCRjcwQ0RERiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3QTFCQkUxQjQxRUYxMUU3OTVFMThBMURCRjcwQ0RERiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdBMUJCRTE4NDFFRjExRTc5NUUxOEExREJGNzBDRERGIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjdBMUJCRTE5NDFFRjExRTc5NUUxOEExREJGNzBDRERGIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAABAAEAAABn3AA4qAKBUGEEUEs8lUVA4h0YhUej6pxEkFQpFCDcBIZFpcs9vuNzwun7Vcb6gkJpuxhrSc3n689V98ZH54gHN1Jh1neXGBAW2KWByGJY9kkSmManOWiQIbKZONnJACkpSdHZ+hqKWgogcMU0cWnq9bsUQURxIKGhcbExxQQQA7">  
       </div>
     </div>
-  </div>
-  <div class="topbar">
-    <img height="10" src="data:image/gif;base64,R0lGODlhEAAQANUAAC8nhjAnhi08lC8riDEbfi8nhSxGmzEWejAfgCxHmy40ji45kjEYezAjhCxImi44ki4wiy45kS8viyxDmDAigixHmi8wiy08ky09kyxEmC44kC1AlixGmi44kS09lC1AlzEWezAfgS8wjC8riTEbfzAjgy40jyxInDEYfCxEmSxImwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4zLWMwMTEgNjYuMTQ1NjYxLCAyMDEyLzAyLzA2LTE0OjU2OjI3ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3QTFCQkUxQTQxRUYxMUU3OTVFMThBMURCRjcwQ0RERiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3QTFCQkUxQjQxRUYxMUU3OTVFMThBMURCRjcwQ0RERiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdBMUJCRTE4NDFFRjExRTc5NUUxOEExREJGNzBDRERGIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjdBMUJCRTE5NDFFRjExRTc5NUUxOEExREJGNzBDRERGIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAABAAEAAABn3AA4qAKBUGEEUEs8lUVA4h0YhUej6pxEkFQpFCDcBIZFpcs9vuNzwun7Vcb6gkJpuxhrSc3n689V98ZH54gHN1Jh1neXGBAW2KWByGJY9kkSmManOWiQIbKZONnJACkpSdHZ+hqKWgogcMU0cWnq9bsUQURxIKGhcbExxQQQA7">  </div>
-</div>
     <br />
     <!-- Open Container -->
     <div class="container" style="padding-top: 10px; padding-bottom: px;">
-<form id="improbability-sms-stock-form" action="https://formspree.io/f/xnqereaj" method="POST">
-    <div class="flex-middle flex-space-between full-width">
-        <h2>Choose Stock to Analyze</h2>
-        <div class="action-area"></div>
-    </div>
-
-    <div class="box box-primary">
-        <section style="display:block">
+      <form id="improbability-sms-stock-form" action="https://formspree.io/f/xnqereaj" method="POST">
+        <div class="flex-middle flex-space-between full-width">
+          <h2>Choose Stock to Analyze</h2>
+          <div class="action-area"></div>
+        </div>
+        <div class="box box-primary">
+          <section style="display:block">
             <div class="row">
-                    <!-- OpenAI API Key -->
-                  <div class="col-xs-6">
-                    <div class="form-group form-type-text">
-                        <label for="api-key">OpenAI API Key</label>
-                        <input id="api-key" name="api-key" class="form-control" placeholder="Enter OpenAI API Key" required type="text">
-                    </div>
-                    </div>
-                    <!-- Stock Selection Dropdown -->
-                  <div class="col-xs-6">
-                    <div class="form-group form-type-select">
-                        <label for="ai-model">Select AI Model</label>
-                        <select id="ai-model" name="ai-model" class="form-control" required>
-                            <option value="gpt-4o">OpenAI GPT 4o (Cheapist)</option>
-                            <option value="gpt-4-turbo">OpenAI GPT 4 Turbo</option>
-                            <option value="gpt-4">OpenAI GPT 4 (Most Expencive)</option>
-                        </select>
-                    </div>
-                    </div>
-                    <!-- Stock Selection Input -->
-                                      <div class="col-xs-6">
-                    <div class="form-group form-type-select">
-                        <label for="stock-ticker">Stock Ticker</label>
-                        <input id="stock-ticker" name="stock-ticker" class="form-control" placeholder="Enter a US Stock Symbol" required type="text">
-                    </div>
-                                        </div>
-                    <!-- Period Selection Dropdown -->
-                    <div class="col-xs-6">
-  <div class="form-group form-type-select">
-                        <label for="period">Period</label>
-                        <select id="period" name="period" class="form-control" required>
-                            <option value="1d">Daily</option>
-                            <option value="1mo">Monthly</option>
-                            <option value="1y">Yearly</option>
-                        </select>
-                    </div>
-</div>
-                <div class="col-xs-12">
-                    <!-- Analyze Button -->
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-custom-primary btn-lg btn-block">Analyze</button>
-                    </div>
+              <!-- OpenAI API Key -->
+              <div class="col-xs-6">
+                <div class="form-group form-type-text">
+                  <label for="api-key">OpenAI API Key</label>
+                  <input id="api-key" name="api-key" class="form-control" placeholder="Enter OpenAI API Key" required type="text">
                 </div>
-                <div class="col-xs-12">
-                    <!-- Analysis Result -->
-                    <div id="improbability-analysis-result" style="display:none">
-                        <p>Your analysis will appear here.</p>
-                    </div>
+              </div>
+              <!-- Stock Selection Dropdown -->
+              <div class="col-xs-6">
+                <div class="form-group form-type-select">
+                  <label for="ai-model">Select AI Model</label>
+                  <select id="ai-model" name="ai-model" class="form-control" required>
+                    <option value="gpt-4o">OpenAI GPT 4o (Cheapist)</option>
+                    <option value="gpt-4-turbo">OpenAI GPT 4 Turbo</option>
+                    <option value="gpt-4">OpenAI GPT 4 (Most Expencive)</option>
+                  </select>
                 </div>
+              </div>
+              <!-- Stock Selection Input -->
+              <div class="col-xs-6">
+                <div class="form-group form-type-select">
+                  <label for="stock-ticker">Stock Ticker</label>
+                  <input id="stock-ticker" name="stock-ticker" class="form-control" placeholder="Enter a US Stock Symbol" required type="text">
+                </div>
+              </div>
+              <!-- Period Selection Dropdown -->
+              <div class="col-xs-6">
+                <div class="form-group form-type-select">
+                  <label for="period">Period</label>
+                  <select id="period" name="period" class="form-control" required>
+                    <option value="1d">Daily</option>
+                    <option value="1mo">Monthly</option>
+                    <option value="1y">Yearly</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <!-- Analyze Button -->
+                <div class="form-group">
+                  <button type="submit" class="btn btn-custom-primary btn-lg btn-block">Analyze</button>
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <!-- Analysis Result -->
+                <div id="improbability-analysis-result" style="display:none">
+                  <p>Your analysis will appear here.</p>
+                </div>
+              </div>
             </div>
-        </section>
+          </section>
+        </div>
+      </form>
     </div>
-</form>
-<!-- Close Our Plans Box -->
-    <div class="flex-middle flex-space-between full-width">
+      <!-- Close Our Plans Box -->
+      <div class="flex-middle flex-space-between full-width">
         <h2>Disclaimer</h2>
         <div class="action-area"></div>
-    </div>
-
-    <div class="box box-primary">
+      </div>
+      <div class="box box-primary">
         <section style="display:block">
-            <div class="row">
-                                <div class="col-xs-12">
-    <p>
-        Improbability Labs Inc. provides this tool for informational purposes only. We do not offer investment advice or recommendations. Users are responsible for their own investment decisions. Our platform does not store or save any personal data, such as your OpenAI API key or any financial information. The API key entered is used solely for the session to process your requests and is not retained after the session ends.
-    </p>
-    <p>
-        The stock data utilized by this tool is provided by <a href="https://pypi.org/project/yfinance/" target="_blank">yfinance</a>, a Python library that fetches historical market data from Yahoo Finance. We make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.
-    </p>
-    <p>
-        Improbability Labs Inc. is not responsible for any losses, damages, or other liabilities incurred as a result of using this tool. The financial guidance provided by the API is based on algorithms and should not be taken as personal financial advice. It is important to conduct your own analysis or consult with a professional financial advisor before making any investment decisions.
-    </p>
-    <p>
-        By using this service, you acknowledge and agree that you understand this disclaimer and agree to its terms.
-    </p>
-</div>
-
+          <div class="row">
+            <div class="col-xs-12">
+              <p>
+                Improbability Labs Inc. provides this tool for informational purposes only. We do not offer investment advice or recommendations. Users are responsible for their own investment decisions. Our platform does not store or save any personal data, such as your OpenAI API key or any financial information. The API key entered is used solely for the session to process your requests and is not retained after the session ends.
+              </p>
+              <p>
+                The stock data utilized by this tool is provided by <a href="https://pypi.org/project/yfinance/" target="_blank">yfinance</a>, a Python library that fetches historical market data from Yahoo Finance. We make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.
+              </p>
+              <p>
+                Improbability Labs Inc. is not responsible for any losses, damages, or other liabilities incurred as a result of using this tool. The financial guidance provided by the API is based on algorithms and should not be taken as personal financial advice. It is important to conduct your own analysis or consult with a professional financial advisor before making any investment decisions.
+              </p>
+              <p>
+                By using this service, you acknowledge and agree that you understand this disclaimer and agree to its terms.
+              </p>
             </div>
+          </div>
         </section>
+      </div>
     </div>
-        </div>
-  </div>
     <!-- FOOTER -->
     <footer>
       <div class="footer">
