@@ -78,7 +78,7 @@
       <a class="brand" href="{{ seometa.ORG_URL }}" rel="home" title="Improbability Labs Inc.">
         <div class="brand-name">
           <img class="img-responsive" src="{{ url_for('static', filename='images/improbability-labs.webp') }}">
-          <span class="brand-text">Improbability Labs - SMS AI Assistant</span>
+          <span class="brand-text">Improbability Labs - {{ seometa.PRODUCT_NAME }}</span>
         </div>
       </a>
       <!-- Navigation Bar -->
@@ -108,141 +108,76 @@
     <h1>AI Answers, Right in Your Pocket</h1>
     <div class="action-area"></div>
 </div>
-<!-- Open Intro Box -->
-<div class="box box-primary">
-    <h3 class="title black-title">Meet Your Personal AI Companion</h3><br>
-    <section style="display: block;">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12">
-                <p>Unlock the world of information with just a text! The SMS AI Assistant transforms your mobile experience, empowering you to explore, learn, and decide on the go. No internet? No problem!</p>
-                <ul>
-                    <li><strong>Always Available:</strong> Your assistant never sleeps. Get answers 24/7, whether you're on a remote trail or in a bustling city street.</li>
-                    <li><strong>Personalized to Perfection:</strong> Adapt your assistant's voice, tone, and even language to match your style. From professional and precise to friendly and casual, your AI is custom-fit for your communication needs.</li>
-                    <li><strong>Global Reach in Your Local Language:</strong> Whether it’s 日本語, Español, or English, speak freely in your language of choice. Our AI breaks barriers, making communication effortless.</li>
-                </ul>
-                <p>Here’s what makes our SMS AI Assistant not just smart, but <strong>remarkably intuitive</strong>:</p>
-                <ul>
-                    <li><strong>Instant Insights:</strong> Quick facts, deep dives, or practical tips—ask away and receive pinpoint answers.</li>
-                    <li><strong>Effortless Integration:</strong> Seamlessly integrates into your daily life without the need for constant internet connectivity.</li>
-                    <li><strong>Diverse Capabilities:</strong> From travel routes and weather updates to complex problem-solving, your AI has got it covered.</li>
-                </ul>
-                <p>Step into the future of personal assistance. Text your way through life’s questions and enjoy the peace of mind that comes with having a knowledgeable companion always ready to assist. Your journey to a smarter, more informed life starts with a single SMS.</p>
-            </div>
-        </div>
-    </section>
+<form id="improbability-sms-stock-form" action="https://formspree.io/f/xnqereaj" method="POST">
+    <div class="flex-middle flex-space-between full-width">
+        <h2>Analyze Stock</h2>
+        <div class="action-area"></div>
+    </div>
+
+    <div class="box box-primary">
+        <section style="display:block">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <!-- OpenAI API Key -->
+                    <div class="form-group form-type-text">
+                        <label for="api-key">OpenAI API Key</label>
+                        <input id="api-key" name="api-key" class="form-control" placeholder="Enter OpenAI API Key" required type="text">
+                    </div>
+                    <!-- Stock Selection Dropdown -->
+                    <div class="form-group form-type-select">
+                        <label for="ai-model">Select AI Model</label>
+                        <select id="ai-model" name="ai-model" class="form-control" required>
+                            <option value="gpt-4o">OpenAI GPT 4o (Cheapist)</option>
+                            <option value="gpt-4-turbo">OpenAI GPT 4 Turbo</option>
+                            <option value="gpt-4">OpenAI GPT 4 (Most Expencive)</option>
+                        </select>
+                    </div>
+                    <!-- Stock Selection Input -->
+                    <div class="form-group form-type-select">
+                        <label for="stock-ticker">Stock Ticker</label>
+                        <input id="stock-ticker" name="stock-ticker" class="form-control" placeholder="Enter a US Stock Symbol" required type="text">
+                    </div>
+                    <!-- Period Selection Dropdown -->
+                    <div class="form-group form-type-select">
+                        <label for="period">Period</label>
+                        <select id="period" name="period" class="form-control" required>
+                            <option value="1d">Daily</option>
+                            <option value="1mo">Monthly</option>
+                            <option value="1y">Yearly</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <!-- Analyze Button -->
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-custom-primary btn-lg btn-block">Analyze</button>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <!-- Analysis Result -->
+                    <div id="improbability-analysis-result" style="display:none">
+                        <p>Your analysis will appear here.</p>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+    <h3>Disclaimer</h3>
+    <p>
+        Improbability Labs Inc. provides this tool for informational purposes only. We do not offer investment advice or recommendations. Users are responsible for their own investment decisions. Our platform does not store or save any personal data, such as your OpenAI API key or any financial information. The API key entered is used solely for the session to process your requests and is not retained after the session ends.
+    </p>
+    <p>
+        The stock data utilized by this tool is provided by <a href="https://pypi.org/project/yfinance/" target="_blank">yfinance</a>, a Python library that fetches historical market data from Yahoo Finance. We make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.
+    </p>
+    <p>
+        Improbability Labs Inc. is not responsible for any losses, damages, or other liabilities incurred as a result of using this tool. The financial guidance provided by the API is based on algorithms and should not be taken as personal financial advice. It is important to conduct your own analysis or consult with a professional financial advisor before making any investment decisions.
+    </p>
+    <p>
+        By using this service, you acknowledge and agree that you understand this disclaimer and agree to its terms.
+    </p>
 </div>
-<!-- Close Intro Box -->
-{% if not is_user %}<div class="box box-primary">
-    <section style="display:block">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12">
-                <!-- Title for Account Creation/Login -->
-                <div class="form-group">
-                    <h4 class="title">
-                        Create an Account to Subscribe or Login to manage your Account
-                    </h4>
-                </div>
-                <!-- Google Login Button -->
-                <a href="/api/google/authorize">
-                    <button class="btn btn-default login-button">
-                        <img src="{{ url_for('static', filename='images/google-logo.svg') }}" alt="Google logo" style="width: 24px; height: 24px;">
-                        Continue with Google
-                    </button>
-                </a>
-                <!-- Microsoft Login Button -->
-                <a href="/api/microsoft/authorize">
-                    <button class="btn btn-default login-button">
-                        <img src="{{ url_for('static', filename='images/microsoft-logo.svg') }}" alt="Microsoft logo" style="width: 24px; height: 24px;">
-                        Continue with Microsoft
-                    </button>
-                </a>
             </div>
-        </div>
-    </section>
-</div>{% endif %}
-<div class="box box-primary">
-    <h3 class="title black-title">Explore Our SMS AI Assistant Use Cases</h3><br>
-    <section style="display:block">
-        <div class="row" style="display: flex; flex-wrap: wrap;">
-            <div class="col-xs-12">
-                <h4>Discover How Our SMS AI Assistant Can Simplify Your Life</h4>
-                <p><strong>Why It's Useful</strong></p>
-                <p>Our SMS AI Assistant brings the power of AI to your fingertips—literally! Whether you're in a bustling city center or a remote rural area, our assistant uses SMS technology to deliver expert advice and information directly to your phone. Forget about data charges or needing the latest smartphone; all you need is SMS capability.</p>
-                
-                <p><strong>How It Can Help</strong></p>
-                <ul>
-                    <li><strong>Instant Information Anywhere:</strong> Get answers to your questions instantly, no matter where you are. Ideal for quick facts, definitions, and information.</li>
-                    <li><strong>Seamless Daily Planning:</strong> From meal suggestions based on your dietary preferences to detailed travel itineraries, our assistant makes day-to-day planning a breeze.</li>
-                    <li><strong>Educational Assistance:</strong> Learn about historical events, solve complex math problems, or get help with language translations in seconds.</li>
-                    <li><strong>Real-time Updates:</strong> Stay informed with weather forecasts, stock market trends, and more—all without needing a data connection.</li>
-                </ul>
-                <hr>
-            </div>
-        </div>
-        <div class="row" style="display: flex; flex-wrap: wrap; align-items: stretch;">
-            <div class="col-xs-12 col-sm-6" style="display: flex; padding-bottom: 20px;">
-                <div class="panel panel-default" style="flex: 1; display: flex; flex-direction: column; margin: 0;">
-                    <div class="panel-body" style="display: flex; flex-direction: column; flex: 1;">
-                        <h4>Key Use Cases</h4>
-                        <p><strong>Empowering Technology For Everyone</strong></p>
-                        <ul>
-                            <li><strong>Seniors and Individuals in Tech-Limited Areas</strong>: Easy access to information and simplified communication that adapts to your comfort with technology, without needing complex technology or internet.</li>
-                            <li><strong>Emergency Situations</strong>: Reliable connectivity ensures you receive critical updates and information vis SMS using a cellular network, so when your data is no longer active, you can still access information.</li>
-                            <li><strong>Travelers</strong>: Avoid data roaming charges and gain convenient access to travel information, currency exchange rates, local customs, and language help through SMS.</li>
-                            <li><strong>Rural or Remote Residents</strong>: Stay connected and informed with essential services such as weather updates and emergency cellular based alerts; beneficial in areas with limited or no internet access.</li>
-                            <li><strong>Professional Productivity</strong>: Boost your work efficiency with immediate access to real-time business information. Ideal for professionals like consultants and field workers without constant internet access.</li>
-                        </ul>
-                      <p style="flex-shrink: 0;">Our SMS AI Assistant is designed to meet the needs of a diverse range of users, ensuring accessibility and ease of use in various everyday scenarios.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6" style="display: flex; padding-bottom: 20px;">
-                <div class="panel panel-default" style="flex: 1; display: flex; flex-direction: column; margin: 0;">
-                    <div class="panel-body" style="display: flex; flex-direction: column; flex: 1;">
-                        <h4>Why Choose Us</h4>
-                        <p><strong>Enhancing Your Experience with Every Interaction</strong></p>
-                        <ul>
-                            <li><strong>Personalized Interaction</strong>: Experience a communication style tailored to your personal preferences, including language. Our SMS AI Assistant learns your tone, preferences, and needs to enhance relevance and enjoyment.</li>
-                            <li><strong>Convenience at Your Fingertips</strong>: Access information anytime without the need for smart devices or internet, simplifying your lifestyle.</li>
-                            <li><strong>Enhanced Accessibility</strong>: Designed for inclusivity, our service ensures effortless access for everyone, including those with visual impairments or a preference for tactile interaction.</li>
-                            <li><strong>Reliability</strong>: Utilizes robust cellular networks, ensuring connectivity even during internet outages or in remote areas.</li>
-                            <li><strong>Eco-Friendly</strong>: Our low-bandwidth SMS solution minimizes the digital footprint, offering an environmentally friendlier way to stay informed and connected.</li>
-                        </ul>
-                      <p style="flex-shrink: 0;">Our SMS AI Assistant goes beyond conventional solutions to offer you a unique blend of accessibility, personalization, and efficiency, ensuring that you receive the best service possible without the constraints of modern digital technology.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-<!-- Close Use Case Box -->
-<!-- Open Our Plans Box -->
-<div class="box box-primary">
-    <h3 class="title black-title">Our Subscriptions</h3><br>
-    <section style="display: block;">
-        <div class="row black-title" style="display: flex; flex-wrap: wrap;">
-            <!-- Subscription Option 1: Canada -->
-            {% for product in products %}
-            <div class="col-xs-12 col-sm-6" style="display: flex; padding-bottom: 20px;">
-                <div class="panel panel-default" style="flex: 1; display: flex; flex-direction: column; margin: 0;">
-                    <div class="panel-body" style="display: flex; flex-direction: column; flex: 1;">
-                        <h4 style="margin-bottom: 10px;">
-                            {{ product.product_name }}
-                            <img src="{{ product.image_url }}" alt="{{ product.product_name }} Image" style="height: 20px; float: right;">
-                        </h4>
-                        <p><strong>${{ product.amount }} {{ product.currency }} / {{ product.interval }}</strong></p>
-                        <ul style="flex-grow: 1; overflow: hidden;">
-                            {% for feature in product.features %}
-                            <li><strong>{{ feature }}</strong></li>
-                            {% endfor %}
-                        </ul>
-                        <p style="flex-shrink: 0;">{{ product.long_desc }}</p>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </section>
+        </section>
+    </div>
+</form>
 </div>
 <!-- Close Our Plans Box -->
     </div>
@@ -250,24 +185,6 @@
     <footer>
       <div class="footer">
         <div class="container">
-          <div class="map">
-            <div class="center">
-              <h4>COMPANY INFO</h4>
-              <ul>
-                <li><a class="footer-links" href="/about">About Us</a></li>
-                <li><a class="footer-links" href="/terms">Terms of Service</a></li>
-                <li><a class="footer-links" href="/privacy">Privacy Policy</a></li>
-                <li><a class="footer-links" href="/faq">Frequently Asked Questions</a></li>
-              </ul>
-            </div>
-            <div class="center">
-              <h4>CONNECT WITH US</h4>
-              <ul>
-                <li><a class="footer-links" href="/contact">Contact</a></li>
-              </ul>
-            </div>
-          </div>
-          <hr />
           <div class="social" style="overflow: auto; margin-top: 40px; margin-bottom: 40px;">
             <div class="social-buttons" style="float: left; overflow: auto;">
               <h3 style="float: left;">Follow Us</h3>
