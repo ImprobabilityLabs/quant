@@ -89,3 +89,50 @@ def get_stock_data(ticker, interval):
     return data, True, "Data successfully retrieved and processed."
 
 
+def request_openai_chat(api_key, model, ticker, csv_data):
+    """
+    Requests a chat completion from OpenAI's GPT model to analyze stock data and identify trading opportunities.
+    
+    Parameters:
+        api_key (str): The API key for authenticating with OpenAI.
+        model (str): The model identifier to use for the chat completion (e.g., "gpt-4o").
+        ticker (str): The stock ticker symbol for which the analysis is requested.
+        csv_data (str): The CSV data representing OHLCV values for the stock.
+    
+    Returns:
+        str: The recommendation from the AI based on the analysis of the stock data.
+    """
+    # Define the system prompt for the analysis request
+    system_prompt = (
+        f"Analyze the provided OHLCV stock data for ticker {ticker} to uncover potential trading opportunities. "
+        "If a favorable buying opportunity is identified for the upcoming period, reply with 'BUY', and provide a "
+        "recommended Limit Sell price along with a Trailing Stop Loss (either in value or percentage). Conversely, if a "
+        "selling opportunity for a short position is detected, reply with 'SELL', including a specific Limit Sell price "
+        "and a Trailing Buy Stop Loss (either in price or percentage). If no definitive trading signal is found, respond "
+        "with 'None'. Where possible explain the rationale. Use the attached CSV file for performing the analysis:"
+    )
+
+    # Initialize the OpenAI client
+    client = OpenAI(api_key=api_key)
+
+    # Create a chat completion request using the system and user messages
+    response = client.chat.completions.create(
+        model=model,
+        messages=[
+            {
+                "role": "system",
+                "content": system_prompt
+            },
+            {
+                "role": "user",
+                "content": csv_data
+            }
+        ],
+        temperature=1,
+        top_p=1,
+        frequency_penalty=0,
+        presence_penalty=0
+    )
+
+    # Return the final response text from the AI
+    return response.choices[0].message.content
