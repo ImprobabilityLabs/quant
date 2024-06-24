@@ -71,6 +71,7 @@ def configure_routes(app):
                 else:
                     datacsv = data.to_csv()
                     output_analysis = open_ai_anaysis(api_key, model, ticker, datacsv)
+                    current_app.logger.info(f'index --> output_analysis: {output_analysis}')
         return render_template('index.html', seometa=MetaTags, output_analysis=output_analysis, form_data=request.form, error=error, api_error=api_error, stock_error=stock_error, input_error=input_error)
 
     @app.route('/contact', methods=['GET', 'POST'])
