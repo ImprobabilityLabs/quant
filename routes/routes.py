@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify, abort, current_app, Response
 from flask_sitemap import Sitemap
-from utils.utility import *
+from utils.utility import get_stock_data, 
 import openai
 from datetime import datetime
 from meta_tags import MetaTags
