@@ -109,7 +109,7 @@
     <br />
     <!-- Open Container -->
     <div class="container" style="padding-top: 10px; padding-bottom: px;">
-      <form id="improbability-sms-stock-form" action="https://quant.improbability.io" method="POST">
+      <form id="improbability-sms-stock-form" action="/" method="POST">
         <div class="flex-middle flex-space-between full-width">
           <h1>Choose Stock to Analyze</h1>
           <div class="action-area"></div>
@@ -129,9 +129,9 @@
                 <div class="form-group form-type-select">
                   <label for="ai-model">Select AI Model</label>
                   <select id="ai-model" name="ai-model" class="form-control" required>
-                    <option value="gpt-4o">OpenAI GPT 4o (Cheapist)</option>
-                    <option value="gpt-4-turbo">OpenAI GPT 4 Turbo</option>
-                    <option value="gpt-4">OpenAI GPT 4 (Most Expencive)</option>
+                    <option value="gpt-4o">OpenAI GPT-4o (Cheapest)</option>
+                    <option value="gpt-4-turbo">OpenAI GPT-4 Turbo</option>
+                    <option value="gpt-4">OpenAI GPT-4 (Most Expensive)</option>
                   </select>
                 </div>
               </div>
@@ -164,16 +164,16 @@
         </div>
       </form>
       <div class="row" style="display:block">
-            <div id="quant-error" class="col-xs-12" style="{% if error %}display:block{% else %}display:none{% endif %}">
-            {% if error %}
-              <div style="color: red; border: 1px solid red; padding: 10px;">
-                <p><strong>Please correct the following errors:</strong></p>
-                <ul>
-                  <li>{{ error }}</li>
-                </ul>
-              </div>
-            {% endif %}
-            </div>
+        <div id="quant-error" class="col-xs-12" style="{% if error %}display:block{% else %}display:none{% endif %}">
+          {% if error %}
+          <div style="color: red; border: 1px solid red; padding: 10px;">
+            <p><strong>Please correct the following errors:</strong></p>
+            <ul>
+              <li>{{ error }}</li>
+            </ul>
+          </div>
+          {% endif %}
+        </div>
       </div>
       <div class="flex-middle flex-space-between full-width" style="display:none">
         <h1>Analysis</h1>
@@ -183,15 +183,15 @@
         <section style="display:block">
           <div class="row">
             <div class="col-xs-12">
-                <!-- Analysis Result -->
-                <div id="improbability-analysis" style="display:none">
-                  <div id="improbability-analysis-result">
-                  </div>
-                  <div class="form-group">
-                    <button type="submit" class="btn btn-custom-primary btn-lg btn-block">Reset</button>
-                  </div>
+              <!-- Analysis Result -->
+              <div id="improbability-analysis" style="display:none">
+                <div id="improbability-analysis-result">
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-custom-primary btn-lg btn-block">Reset</button>
                 </div>
               </div>
+            </div>
           </div>
         </section>
       </div>
@@ -267,16 +267,16 @@
       document.getElementById('improbability-analysis-result').innerHTML = '<p>'+htmlText+'</p>';
     </script>
     <script>
-    function updateTextBasedOnScreenSize() {
-        var brandText = document.getElementById('brandText');
-        if (window.innerWidth < 550) {
-            brandText.textContent = '{{ seometa.PRODUCT_NAME }}';
-        } else {
-            brandText.textContent = 'Improbability Labs - {{ seometa.PRODUCT_NAME }}';
-        }
-    }
-    window.addEventListener('resize', updateTextBasedOnScreenSize);
-    updateTextBasedOnScreenSize();
+      function updateTextBasedOnScreenSize() {
+          var brandText = document.getElementById('brandText');
+          if (window.innerWidth < 550) {
+              brandText.textContent = '{{ seometa.PRODUCT_NAME }}';
+          } else {
+              brandText.textContent = 'Improbability Labs - {{ seometa.PRODUCT_NAME }}';
+          }
+      }
+      window.addEventListener('resize', updateTextBasedOnScreenSize);
+      updateTextBasedOnScreenSize();
     </script>
   </body>
 </html>
