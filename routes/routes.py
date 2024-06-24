@@ -53,7 +53,7 @@ def configure_routes(app):
         product_data = get_products()
         current_app.logger.info('Info: Index Page - Member Object: ' + str(member))
         menu = generate_menu(member)
-        return render_template('index.html', seometa=MetaTags, menu=menu, is_user=is_user, products=product_data)
+        return render_template('index.html', seometa=MetaTags)
 
     @app.route('/contact', methods=['GET', 'POST'])
     def contact_page():
@@ -63,7 +63,7 @@ def configure_routes(app):
             member = check_user_subscription(None)
         current_app.logger.info('Info: Contact Page - Member Object: ' + str(member))
         menu = generate_menu(member)
-        return render_template('contact.html', seometa=MetaTags, menu=menu)
+        return render_template('contact.html', seometa=MetaTags)
 
     @sitemap.register_generator
     def index():
