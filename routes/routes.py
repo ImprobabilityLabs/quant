@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, j
 from flask_sitemap import Sitemap
 from utils.utility import get_stock_data, check_openai_key
 import openai
+import pandas as pd
 from datetime import datetime
 from meta_tags import MetaTags
 
@@ -51,14 +52,24 @@ def configure_routes(app):
             required_fields = [
                 'api-key', 'ai-model', 'stock-ticker', 'stock-period'
             ]
-            if all(field in request.form for field in required_fields):
-                if not check_openai_key(request.form['api-key']):
-                    error = True
-                    api_error = 'Invalid API Key. Please enter a valid API key.'
-            else:
+            if not all(field in request.form for field in required_fields):
                 error = True
                 input_error = 'Please complete all required fields.'
-                
+            api_key = request.form.get('api-key')
+            ticker = request.form.get('stock-ticker')
+            period = request.form.get('stock-period')
+            model = request.form.get('ai-model')
+            if (api_key is None or api_key == '') or not check_openai_key(api_key):
+                error = True
+                api_error = 'Invalid or Missing API Key. Please enter a valid API key.'   
+            if not error:
+                data, success, message = get_stock_data(ticker, period)
+                if not success:
+                    error = True
+                    stock_error = message
+                else:
+                    datacsv = data.to_csv()
+                    output_analysis = open_ai_anaysis(api_key, model, ticker, datacsv)
         return render_template('index.html', seometa=MetaTags, output_analysis=None, form_data=request.form, error=error, api_error=api_error, stock_error=stock_error, input_error=input_error)
 
     @app.route('/contact', methods=['GET', 'POST'])
