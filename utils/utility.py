@@ -89,7 +89,7 @@ def get_stock_data(ticker, interval):
     return data, True, "Data successfully retrieved and processed."
 
 
-def request_openai_chat(api_key, model, ticker, csv_data):
+def open_ai_anaysis(api_key, model, ticker, csv_data):
     """
     Requests a chat completion from OpenAI's GPT model to analyze stock data and identify trading opportunities.
     
