@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="{{ seometa.AUTHOR }}">
+    <meta name="description" content="{{ seometa.DESCRIPTION }}">
+    <meta name="keywords" content="{{ seometa.KEYWORDS }}">
+    <meta name="webmaster" content="{{ seometa.WEBMASTER }}">	  
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Improbability Labs Inc. - SMS AI Assistant">
+    <meta property="og:description" content="{{ seometa.DESCRIPTION }}">
+    <meta property="og:image" content="{{ url_for('static', filename='images/improbability-labs.png') }}">
+    <meta property="og:url" content="{{ request.url_root[:-1] }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Improbability Labs Inc. - SMS AI Assistant">
+    <meta name="twitter:description" content="{{ seometa.DESCRIPTION }}">
+    <meta name="twitter:image" content="{{ url_for('static', filename='images/improbability-labs.png') }}">
+    <link rel="canonical" href="https://sms.improbability.io/terms">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
+    <title>Improbability Labs Inc. - SMS AI Assistant - Terms & Conditions</title>{% if google_analytics_id %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ google_analytics_id }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '{{ google_analytics_id }}');
+    </script>{% endif %}{% if google_site_verification %}
+    <meta name="google-site-verification" content="{{ google_site_verification }}">{% endif %}{% if bing_site_verification %}
+    <meta name="msvalidate.01" content="{{ bing_site_verification }}">{% endif %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Improbability Labs Inc. - SMS AI Assistant",
+      "url": "{{ request.url_root[:-1] }}",
+      "sameAs": [
+        {% if seometa.LINKEDIN %}"{{ seometa.LINKEDIN }}"{% endif %}{% if seometa.LINKEDIN and (seometa.TWITTER or seometa.FACEBOOK) %},{% endif %}
+        {% if seometa.TWITTER %}"{{ seometa.TWITTER }}"{% endif %}{% if seometa.TWITTER and seometa.FACEBOOK %},{% endif %}
+        {% if seometa.FACEBOOK %}"{{ seometa.FACEBOOK }}"{% endif %}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "name": "Improbability Labs Inc.",
+      "url": "{{ seometa.ORG_URL }}",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "{{ seometa.WEBMASTER }}",
+        "contactType": "customer service"
+      }
+    }
+    </script>	
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ie10-viewport-bug-workaround.css') }}">
+    <script src="{{ url_for('static', filename='js/ie-emulation-modes-warning.js') }}"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{{ url_for('static', filename='css/improbability.css') }}" rel="stylesheet">
+  </head>
+  <body>
+<div class="headbar">
+  <div class="container">
+    <div class="wrapper">
+      <a class="brand" href="/" rel="home" title="Improbability Labs Inc.">
+        <div class="brand-name">
+          <img class="img-responsive" src="{{ url_for('static', filename='images/improbability-labs.webp') }}">
+          <span class="brand-text">Improbability Labs - SMS AI Assistant</span>
+        </div>
+      </a>
+      <!-- Navigation Bar -->
+      <div class="navbar-header pull-right">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span the="icon-bar"></span>
+        </button>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+        {% for item in menu %}
+          <li><a href="{{ item.url }}">{{ item.name }}</a></li>
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="topbar">
+    <img height="10" src="data:image/gif;base64,R0lGODlhEAAQANUAAC8nhjAnhi08lC8riDEbfi8nhSxGmzEWejAfgCxHmy40ji45kjEYezAjhCxImi44ki4wiy45kS8viyxDmDAigixHmi8wiy08ky09kyxEmC44kC1AlixGmi44kS09lC1AlzEWezAfgS8wjC8riTEbfzAjgy40jyxInDEYfCxEmSxImwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4zLWMwMTEgNjYuMTQ1NjYxLCAyMDEyLzAyLzA2LTE0OjU2OjI3ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3QTFCQkUxQTQxRUYxMUU3OTVFMThBMURCRjcwQ0RERiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3QTFCQkUxQjQxRUYxMUU3OTVFMThBMURCRjcwQ0RERiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdBMUJCRTE4NDFFRjExRTc5NUUxOEExREJGNzBDRERGIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjdBMUJCRTE5NDFFRjExRTc5NUUxOEExREJGNzBDRERGIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAABAAEAAABn3AA4qAKBUGEEUEs8lUVA4h0YhUej6pxEkFQpFCDcBIZFpcs9vuNzwun7Vcb6gkJpuxhrSc3n689V98ZH54gHN1Jh1neXGBAW2KWByGJY9kkSmManOWiQIbKZONnJACkpSdHZ+hqKWgogcMU0cWnq9bsUQURxIKGhcbExxQQQA7">  </div>
+</div>
+    <br />
+    <!-- Open Container -->
+    <div class="container" style="padding-top: 10px; padding-bottom: px;">
+<div class="flex-middle flex-space-between full-width">
+    <h1 class="black-title">Terms of Use</h1>
+    <div class="action-area"></div>
+</div>
+<!-- Three columns of text below the carousel -->
+<div class="box box-primary">
+    <h3 class="title black-title">Overview</h3>
+    <section style="display:block">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <p>These Terms of Use (the &ldquo;Terms&rdquo;) are an electronic contract between You and Improbability Labs Inc (&ldquo;Us&rdquo; or &ldquo;We&rdquo;) and govern your access to use of and participation in content, products, goods, offerings, technology, events, software, applications or other services offered or made available by Us to You (collectively, the &ldquo;Services&rdquo;).</p> <p>By accessing, viewing, downloading, using the Services or registering with Us, you agree to be legally bound by and comply with the Terms and that use by You of the Services is subject to and conditional on the Terms.</p> 
+            </div>
+        </div> 
+    </section>
+                  <h3 class="title black-title">Use of Our Services</h3>
+			<section style="display:block">
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<p>You agree that in your use of the Services You will:</p> <ol> <li>Comply with applicable laws and regulations and not participate in or assist or permit any prohibited or illegal or offensive activities or conduct by any party;</li> <li>Protect your username and password and access security and to notify us if you are aware of a security breach or prohibited or illegal activity in relation to the Services;</li> <li>Never post content with graphic or explicit descriptions of sexual acts or that could be offensive, threatening, abusive, harassing, defamatory, libelous, deceptive, fraudulent, invasive of another&apos;s privacy, tortious, or violate any hate or human rights laws or regulations or standards;</li> <li>Not engage in activity that could be harmful or offensive to the SMS AI Assistant, Improbability Labs Inc., other users, clients, advertisers, affiliates, vendors, or any other party;</li> <li>Not use any automated process or technology to access or use the Services or to capture (&ldquo;scrape&rdquo;) data or content from any Service; and</li> <li>Not use any technology or process to damage, disable, impair, or otherwise affect the integrity or availability of the Services or technology, data, or content connected to the Services.</li> <li>Not violate Our intellectual property rights including copyright and trade-marks or those of any of our partners, advertisers or affiliates.</li> </ol> <p>We reserve the right at any time without notice to take any action including suspension or deactivation of any account, content, Services or user to protect the integrity of the Services and to enforce these Terms.</p> 
+                     </div>
+                  </div> 
+                  </section>
+                        
+                        <h3 class="title black-title">Advertising and Electronic Messages, Privacy</h3>
+			<section style="display:block">
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<p>The Services may include displayed or other advertising which you agree to receive as a condition of using the Services, on any device or technology you may use to access or use the Services.&nbsp; You further agree and consent that by registering with us or setting up or maintaining an account, we may send you commercial electronic messages in the course of delivering or promoting the Services or new or updated Services. If you are an advertiser, you represent and warrant you have all necessary authority to post advertising under your account and bind your organization to any payment obligations and to these Terms. These Terms, Your use of the Services, and our relationship with You are subject to our Privacy Policy found at <a href="http://sms.improbability.io/privacy" target="_blank">sms.improbability.io/privacy</a>.</p>
+                     </div>
+                  </div> 
+                  </section>
+                  
+                  <h3 class="title black-title">Use of Content and Trademarks </h3>
+			<section style="display:block">
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<p>Content in the Services is created and supplied by us or by third parties who supply or license it to us. We and such third parties own all rights, title, and interests in that content and in any compilation, collective work or derivative work created by us using or incorporating this content and you obtain no rights in such content except a personal limited license to use such content for personal purposes solely as necessary to use or participate in the Services and for no other purpose.</p> <p>The Services and content made available as part of the Services are protected by copyright, trademark, patent, trade secret, international treaties, laws, and other proprietary rights, and may contain digital rights management features intended to protect a party&apos;s proprietary rights in such content. You will not violate or interfere with Our or any party&apos;s rights in such content and You will not seek or assist any other party to defeat or avoid any mechanisms for preventing the unauthorized reproduction or distribution of content.&nbsp; You may not use the content in a manner that exceeds the rights granted for your use of the content nor may you copy or distribute the content or create a derivative work unless you are authorized by Us in writing in advance.</p>
+                     </div>
+                  </div> 
+                  </section>
+                  
+                  <h3 class="title black-title">All Content and Services are Provided &ldquo;As Is&rdquo;</h3>
+			<section style="display:block">
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<p>The content provided on the Services, including any content posted by users or third parties, is for general information purposes only and We make no warranty, representation or guarantee of any nature regarding the Services or any content available through them . We do not endorse any opinion expressed by any user, advertiser or third party content provider.</p> <p>ALL CONTENT IS POSTED AND SERVICES PROVIDED &ldquo;AS IS&rdquo;.&nbsp; USE OR RELIANCE BY YOU ON ANY CONTENT OR SERVICE IS ENTIRELY AT YOUR OWN RISK. WE HAVE NO LIABILITY TO YOU FOR THE CONSEQUENCES OF USING OR RELYING ON ANY CONTENT AND YOU RELEASE US FROM ANY SUCH CLAIM.</p> <p>You may not use any of our trade names, trademarks, service marks, logos, domain names, and other distinctive brand elements or design features. Without limiting this, you agree and acknowledge that We are the exclusive owner of the trade-marks &ldquo;SMS AI Assistant&rdquo;, &ldquo;IMPROBABILITY LABS INC.&rdquo;, &ldquo;IMPROBABILITY LABS&rdquo;, &ldquo;IMPROBABILITY.IO&rdquo; and such other trade-marks as may appear in the Services from time to time and that you will no directly or indirectly challenge or assist any third party in the challenge of Our rights under this provision. You reconfirm and ratify these rights and all rights in these Terms by using and continuing to use the Services.</p> <p>Use of any RSS or other feeds provided as part of the Services is subject to these Terms. You may not remove or alter any attribution, links or content.&nbsp; Such fees may be discontinued at any time in Our sole discretion.</p>
+                     </div>
+                  </div> 
+                  </section>
+                      
+                      
+                   <h3 class="title black-title">Content You Post</h3>
+			<section style="display:block">
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<p>You may post content to the Services provided that You created and own or are authorized to use the rights to the content and the content does not violate the intellectual property or other rights of any third party and does not otherwise violate these terms or any posting policies that may apply.</p> 
+						<p>We reserve the right to remove any content for any reason at any time without notice to You. By posting content to the Services you grant us and our assigns, agents, affiliates, partners, and licensees the irrevocable, royalty free, perpetual, worldwide right and license to use, reproduce, modify, display, remix, perform, distribute, redistribute, adapt, promote, create derivative works, and syndicate  or share this content in any medium and through any form of technology or distribution. You acknowledge that we own all rights, title, and interests in any compilation, collective work or other derivative work created by us using or incorporating your content (but not your original content, in which You retain ownership rights subject to the license and other rights granted in this provision).&nbsp; You are legally responsible for content you post to the Services and assume all risk and liability associated with posting content, including any personal information about yourself or others or content that is unlawful.</p> 
+                     </div>
+                  </div> 
+                  </section>
+                  
+                  <h3 class="title black-title">No Spam or Commercial Electronic Messages </h3>
+			<section style="display:block">
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<p>You may not use or allow others to use your username or account to send or conduct e-mail, instant message, voice mail, fax, spam via chat, phishing,&nbsp; or any other unsolicited communication or to harvest, collect, or aggregate information or data.</p>
+                     </div>
+                  </div> 
+                  </section>
+                  
+                  <h3 class="title black-title">Subscription or Fee-Based Services, Billing </h3>
+			<section style="display:block">
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<p>The Services may include subscription or fee-based offerings which will be subject to these Terms and an special terms that may apply for such Services. If you register for such Services, you will designate a payment method and provide us with accurate billing and payment information which you undertake to keep valid and up to date. You will be billed for such Services through the payment method established.&nbsp; You agree to pay Us for all charges incurred in your account, including any applicable taxes, fees, surcharges or authorized third party fees or charges. You irrevocably authorize and direct us to charge your designated payment method for these charges or if your designated payment method fails then we may charge any other payment method you have on file with us or otherwise take any necessary steps to collect such fees or charges. You authorize and direct us to retain account and payment information associated with your account.  Unpaid amounts are payable on demand.</p> <p>Where applicable, you authorize and direct payment in advance and/or on a daily, monthly, yearly, lump sum, milestone, event,  or other basis. We may post charges to your payment method individually or aggregate charges for some or all of your fee-based Services with us in our sole discretion. Each instance that you use a fee-based Service, you reconfirm the terms of this provision and that (a) We are authorized to charge Your designated payment method; (b) We may submit charges incurred under Your account for payment; and (c) You will be responsible for such charges, even if the corresponding account is canceled by You or terminated by Us. Trials, discounts or promotions may be terminated or varied by Us in our sole discretion at any time.&nbsp; All charges are non-refundable.&nbsp; Subscription or fee-based Services may be changed or discontinued by Us at any time in our sole discretion.</p> <p>Pricing fees and billing methods may be changed by Us at any time on thirty days notice to You. If you disagree with any proposed change you may cancel your subscription or fee-based Service before such change takes effect.&nbsp; Your continued use of the applicable Services after the change takes effect constitutes your agreement and ratification to continue the Services and these Terms with the changes in effect and binding on You.&nbsp; Delinquent accounts may be terminated at any time without notice to You. Overdue accounts are subject to a 2% per month late charge. You are liable for our costs including attorney&apos;s fees on a full indemnity basis incurred in collecting any overdue accounts or enforcing these Terms.&nbsp; You are liable for all charges incurred under your account, including applicable taxes, fees, surcharges, and orders made by You or anyone you permit to use your account or who accesses your account as a result of failure by You to protect your username, password, or other authentication credentials or information. Any billing problem or dispute or discrepancy must be raised and brought to our attention within ninety days after it appears on your billing statement, failing which you irrevocably waive your right to dispute such problem, dispute or discrepancy.</p> 
+                     </div>
+                  </div> 
+                  </section>
+                  
+                  <h3 class="title black-title">Platform License </h3>
+			<section style="display:block">
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<p> We grant you a limited, personal, non-exclusive, non-transferable,&nbsp; license to install  (where applicable) or access our technology Platform on a device from which you wish to access the Services and to use the Platform to connect to and use our Services. We may provide automatic upgrades of our technology and Platform in our sole discretion and which may not be consistent across all platforms and devices. You accept and will take no action to interfere with any such automatic upgrades and changes to our technology or Platform.&nbsp; &ldquo;Platform&rdquo; for the purposes of these Terms refers to the software, IT infrastructure, APIs, software developer kits, urls, and any related information technology operated by us to support and deliver the Services. You may not use the Platform for any purpose except as under under the Services and permitted under these Terms. You may not sell, host, integrate, or incorporate the Platform (or any portion of it) into any other product or services without our written consent. You may not reverse engineer, decompile or disassemble the Platform or otherwise attempt to derive any source code (except where expressly permitted by law) or any communications protocol or tools for accessing our Services or the Platform. You may not modify, adapt or create derivative works from the Services or Platform or remove proprietary notices in the Services or Platform.</p> 
+                     </div>
+                  </div> 
+                  </section>
+                   
+                   
+                   <h3 class="title black-title">Exporting of Content or Services </h3>
+			<section style="display:block">
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<p>Your use of the Services must comply with applicable import and export control laws and regulations of Canada, the United States and other countries.&nbsp; You must not transfer or convey by electronic transmission or otherwise any content, data, or technology subject to restrictions under such laws to a national destination, person, or entity or for an end-use prohibited under those laws without firstly obtaining and complying with any applicable government authorization. You must not upload data or software or other other technology or content to our Services that cannot be exported without prior written government authorization and notification, including, but not limited to, certain types of encryption software.</p> 
+                     </div>
+                  </div> 
+                  </section>
+                  
+                  <h3 class="title black-title">Disclaimer of Warranties and Limitations on Remedies and Liability </h3>
+			<section style="display:block">
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<p>In this section, &ldquo;Released Parties&rdquo; means Improbability Labs Inc. and its owners and affiliates and their officers, directors, employees, agents, service providers, suppliers, partners, and licensors.</p> <p>YOU EXPRESSLY UNDERSTAND AND AGREE THAT: (A) YOUR USE OF THE SERVICES IS AT YOUR SOLE RISK, AND THE SERVICES ARE PROVIDED ON AN &ldquo;AS IS&rdquo; AND &ldquo;AS AVAILABLE&rdquo; BASIS AND TECHBIVES AND THE RELEASED PARTIES EXPRESSLY DISCLAIM ALL WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, WARRANTIES AS TO PRODUCTS OR SERVICES OFFERED BY OR THROUGH THE SERVICES, IMPLIED WARRANTIES OF MERCHANTABILITY, QUALITY, SAFETY, RELIABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT; (B) THE RELEASED PARTIES MAKE NO WARRANTY THAT (I) THE SERVICES WILL MEET YOUR REQUIREMENTS, (II) THE SERVICES WILL BE UNINTERRUPTED, TIMELY, SECURE, OR ERROR-FREE, (III) THE RESULTS THAT MAY BE OBTAINED FROM THE USE OF THE SERVICES WILL BE ACCURATE OR RELIABLE, (IV) THE QUALITY OF ANY GOODS OR SERVICE AVAILABLE THROUGH THE SERVICES WILL MEET YOUR EXPECTATIONS, AND (V) ANY ERRORS IN THE SERVICES WILL BE CORRECTED; AND (C) ANY DATA OR MATERIAL DOWNLOADED OR OTHERWISE OBTAINED THROUGH THE USE OF THE SERVICES IS ACCESSED AT YOUR OWN DISCRETION AND RISK, AND YOU WILL BE SOLELY RESPONSIBLE FOR ANY DAMAGE TO YOUR COMPUTER SYSTEM OR MOBILE DEVICE OR LOSS OF DATA THAT RESULTS FROM THE DOWNLOAD OR USE OF ANY SUCH MATERIAL.</p> 
+                     </div>
+                  </div> 
+                  </section>
+                  
+                  <h3 class="title black-title">LIMITATION OF LIABILITY AND INDEMNIFICATION </h3>
+			<section style="display:block">
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<p>Improbability Labs Inc. and its owners, suppliers and their personnel are not liable for anything that happens to you that may be connected to your use of the Services. You may be responsible for our legal fees and costs arising out of your use of the Services or any breach by You of these Terms.</p> <p>YOU EXPRESSLY UNDERSTAND AND AGREE THAT THE RELEASED PARTIES SHALL NOT BE LIABLE TO YOU OR THOSE AUTHORIZED BY YOU TO USE THE SERVICES FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES, INCLUDING, BUT NOT LIMITED TO, DAMAGES FOR LOSS OF PROFITS, GOODWILL, USE, DATA OR OTHER INTANGIBLE LOSSES (EVEN IF IMPROBABILITY LABS INC. HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES), RESULTING FROM: (i) THE USE OR THE INABILITY TO USE THE SERVICES; (ii) THE COST OF PROCUREMENT OF SUBSTITUTE GOODS AND SERVICES RESULTING FROM ANY GOODS, DATA, INFORMATION OR SERVICES OBTAINED OR MESSAGES RECEIVED OR TRANSACTIONS ENTERED INTO THROUGH, FROM, OR AS A RESULT OF IMPROBABILITY LABS INC&apos;s SERVICES; (iii) UNAUTHORIZED ACCESS TO OR ALTERATION OF YOUR TRANSMISSIONS OR DATA; (iv) STATEMENTS OR CONDUCT OF ANY USER OR THIRD PARTY ON IMPROBABILITY LABS INC&apos;s SERVICES; (v) YOUR RELIANCE ON CONTENT MADE AVAILABLE BY US; OR (vi) ANY OTHER MATTER RELATING TO IMPROBABILITY LABS INC&apos;s SERVICES. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF CERTAIN WARRANTIES OR THE LIMITATION OR EXCLUSION OF LIABILITY FOR INCIDENTAL OR CONSEQUENTIAL DAMAGES. ACCORDINGLY, SOME OF THE ABOVE LIMITATIONS IN THIS PARAGRAPH MAY NOT APPLY TO YOU.</p> <p>TO THE FULLEST EXTENT POSSIBLE BY LAW, IMPROBABILITY LABS INC. AND ITS SUPPLIERS AND LICENSOR&apos;S MAXIMUM LIABILITY ARISING OUT OF OR IN CONNECTION WITH IMPROBABILITY LABS INC&apos;s SERVICE OR YOUR USE OF IMPROBABILITY LABS INC&apos;s SERVICES OR CONTENT, REGARDLESS OF THE CAUSE OF ACTION (WHETHER IN CONTRACT, TORT, BREACH OF WARRANTY, OR OTHERWISE), WILL NOT EXCEED $100 OR THE VALUE OF SERVICES ACTUALLY PAID FOR BY YOU RELATING TO THE CLAIM.</p> <p>You agree to defend, indemnify, and hold harmless Improbability Labs Inc. and its owners and suppliers and their officers, directors, affiliates, suppliers and licensors from and against any claims, actions, or demands from You or any third party, including without limitation reasonable legal and accounting fees, alleging or resulting from (i) your use of the Services, (ii) your use of or reliance on any third party or Improbability Labs Inc.' Content, or (iii) your breach of these Terms.</p> 
+                     </div>
+                  </div> 
+                  </section>
+                  
+                  <h3 class="title black-title">Applicable Law, Dispute Resolution, Waiver of Jury Trial or Class Action Rights </h3>
+			<section style="display:block">
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<p>These Terms and any dispute by You under them or relating to Your use of the Services shall be exclusively governed by the laws of Ontario, Canada and the federal and provincial laws applicable therein. Any dispute or claim regarding Your use of the Services shall be exclusively resolved by private individual arbitration conducted at Toronto, Ontario before a single arbitrator in accordance with the Arbitration Act of Ontario.&nbsp; In the event of dispute or claim, prior to proceeding to exercise your right to arbitration, you must (a) deliver to Improbability Labs Inc. notice in writing setting out the basis of your dispute or claim and (b) participate for a period of no less than sixty days in good faith negotiation with Us to seek to resolve your dispute or claim.&nbsp; In the event of arbitration, the successful party shall be entitled to an award of their costs including attorney&apos;s fees on a full indemnity basis.&nbsp; Notwithstanding the foregoing, a party may apply to a court of competent jurisdiction to enforce any order of an arbitrator and/or to seek equitable, injunctive or mandatory relief or order to restrain any actual or threatened breach of this Agreement.</p> <p>Any proceedings to resolve or litigate any dispute in any forum shall be conducted solely on an individual basis. Class arbitration, class action, private general action, consolidation of Your dispute or claim with any other arbitrations or other proceeding in which either party acts or proposes to act in a representative capacity are not permitted and are explicitly waived by you, and an arbitrator or court will have no jurisdiction to hear such claims.&nbsp; In the event a court or arbitrator of competent jurisdiction finds the class action waiver in this section is unenforceable as to all or some parts of a dispute, then such waiver will not apply to those parts and they will be severed and proceed in a court of law, with the remaining parts proceeding in arbitration. If any other provision of this dispute resolution section is found to be illegal or unenforceable, that provision will likewise be severed with the remainder of this section remaining in full force and effect.&nbsp; To the extent permitted by applicable law, any claim or dispute under these Terms must be commenced and filed within one year from the date you notify us of a claim or dispute, after which any claim based on such subject matter is permanently barred.</p>
+                     </div>
+                  </div> 
+                  </section>
+                  
+                  <h3 class="title black-title">General </h3>
+			<section style="display:block">
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<p>These Terms and  any additional terms as communicated from time to time constitutes the entire legal agreement between You and Us and replace and supersede any prior agreements between you and Us.</p> 
+						<p>We may modify this these Terms from time to time as provided for herein and if You do not agree to the changes then you may cease using your account and the Services.&nbsp; Continued use by you Services or subscription to a Service after the effective date of any changes constitutes your agreement to such changes. &nbsp;&nbsp;&nbsp;We may assign this contract at any time without notice to You. You may not assign this contract to any other party.&nbsp; Registrations, agreements, and terms provided by us electronically to You have the same effect as if in writing and are legally enforceable as a duly signed instrument.</p>
+                     </div>
+                  </div> 
+                  </section>
+   </div>
+                  </div>
+				</div>
+                
+		  </section>
+		</div>	
+         
+         
+         
+		
+    </div>
+                 </div>	         </div>
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer">
+        <div class="container">
+          <div class="map">
+            <div class="center">
+              <h4>COMPANY INFO</h4>
+              <ul>
+                <li><a class="footer-links" href="/about">About Us</a></li>
+                <li><a class="footer-links" href="/terms">Terms of Service</a></li>
+                <li><a class="footer-links" href="/privacy">Privacy Policy</a></li>
+                <li><a class="footer-links" href="/faq">Frequently Asked Questions</a></li>
+              </ul>
+            </div>
+            <div class="center">
+              <h4>CONNECT WITH US</h4>
+              <ul>
+                <li><a class="footer-links" href="/contact">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          <hr />
+          <div class="social" style="overflow: auto; margin-top: 40px; margin-bottom: 40px;">
+            <div class="social-buttons" style="float: left; overflow: auto;">
+              <h3 style="float: left;">Follow Us</h3>
+              <ul class="socbut" style="float: left; list-style-type: none; height: 40px; line-height: 24px; margin-bottom: 0px; margin-left: 5px; margin-top: 20px; padding-left: 0px; padding-bottom: 5px;">
+                <li style="display: inline; padding-left: 7px; padding-right: 7px;">
+                  <a href="{{ seometa.LINKEDIN }}" target="_blank">
+                  <img src="{{ url_for('static', filename='images/linkdin.svg') }}" width="30px" 
+                    onmouseover="this.src='{{ url_for('static', filename='images/linkdin_hover.svg') }}'" 
+                    onmouseout="this.src='{{ url_for('static', filename='images/linkdin.svg') }}'" />
+                  </a>
+                </li>
+                <li style="display: inline; padding-left: 7px; padding-right: 7px;">
+                  <a href="{{ seometa.TWITTER }}" target="_blank">
+                  <img src="{{ url_for('static', filename='images/twitter.svg') }}" width="30px" 
+                    onmouseover="this.src='{{ url_for('static', filename='images/twitter_hover.svg') }}'" 
+                    onmouseout="this.src='{{ url_for('static', filename='images/twitter.svg') }}'" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <hr />
+          <div class="copyright" style="padding-top: 25px; padding-bottom: 25px">
+            <center>
+              <p><a class="footer-links" href="{{ seometa.ORG_URL }}">&copy; 2024 Improbability Labs Inc.</a></p>
+            </center>
+          </div>
+          <p class="pull-right"><a class="footer-links" href="#">Back to top</a></p>
+        </div>
+      </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{{ url_for('static', filename='js/ie10-viewport-bug-workaround.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/improbability.js') }}"></script>
+  </body>
+</html>

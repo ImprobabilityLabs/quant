@@ -1,0 +1,515 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="{{ seometa.AUTHOR }}">
+    <meta name="description" content="{{ seometa.DESCRIPTION }}">
+    <meta name="keywords" content="{{ seometa.KEYWORDS }}">
+    <meta name="webmaster" content="{{ seometa.WEBMASTER }}">	  
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Improbability Labs Inc. - SMS AI Assistant">
+    <meta property="og:description" content="{{ seometa.DESCRIPTION }}">
+    <meta property="og:image" content="{{ url_for('static', filename='images/improbability-labs.png') }}">
+    <meta property="og:url" content="{{ request.url_root[:-1] }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Improbability Labs Inc. - SMS AI Assistant">
+    <meta name="twitter:description" content="{{ seometa.DESCRIPTION }}">
+    <meta name="twitter:image" content="{{ url_for('static', filename='images/improbability-labs.png') }}">
+    <link rel="canonical" href="https://sms.improbability.io/">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
+    <title>Improbability Labs Inc. - SMS AI Assistant - Account</title>{% if google_analytics_id %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ google_analytics_id }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '{{ google_analytics_id }}');
+    </script>{% endif %}{% if google_site_verification %}
+    <meta name="google-site-verification" content="{{ google_site_verification }}">{% endif %}{% if bing_site_verification %}
+    <meta name="msvalidate.01" content="{{ bing_site_verification }}">{% endif %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Improbability Labs Inc. - SMS AI Assistant",
+      "url": "{{ request.url_root[:-1] }}",
+      "sameAs": [
+        {% if seometa.LINKEDIN %}"{{ seometa.LINKEDIN }}"{% endif %}{% if seometa.LINKEDIN and (seometa.TWITTER or seometa.FACEBOOK) %},{% endif %}
+        {% if seometa.TWITTER %}"{{ seometa.TWITTER }}"{% endif %}{% if seometa.TWITTER and seometa.FACEBOOK %},{% endif %}
+        {% if seometa.FACEBOOK %}"{{ seometa.FACEBOOK }}"{% endif %}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "name": "Improbability Labs Inc.",
+      "url": "{{ seometa.ORG_URL }}",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "{{ seometa.WEBMASTER }}",
+        "contactType": "customer service"
+      }
+    }
+    </script>	
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ie10-viewport-bug-workaround.css') }}">
+    <script src="{{ url_for('static', filename='js/ie-emulation-modes-warning.js') }}"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{{ url_for('static', filename='css/improbability.css') }}" rel="stylesheet">
+    <script src="https://js.stripe.com/v3/"></script>
+  </head>
+  <body>
+    <div id="sms-improbability-overlay" class="sms-improbability-overlay">
+        <i class="fa fa-gear sms-improbability-spinner"></i>
+    </div>
+<div class="headbar">
+  <div class="container">
+    <div class="wrapper">
+      <a class="brand" href="/" rel="home" title="Improbability Labs Inc.">
+        <div class="brand-name">
+          <img class="img-responsive" src="{{ url_for('static', filename='images/improbability-labs.webp') }}">
+          <span class="brand-text">Improbability Labs - SMS AI Assistant</span>
+        </div>
+      </a>
+      <!-- Navigation Bar -->
+      <div class="navbar-header pull-right">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span the="icon-bar"></span>
+        </button>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+        {% for item in menu %}
+          <li><a href="{{ item.url }}">{{ item.name }}</a></li>
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="topbar">
+    <img height="10" src="data:image/gif;base64,R0lGODlhEAAQANUAAC8nhjAnhi08lC8riDEbfi8nhSxGmzEWejAfgCxHmy40ji45kjEYezAjhCxImi44ki4wiy45kS8viyxDmDAigixHmi8wiy08ky09kyxEmC44kC1AlixGmi44kS09lC1AlzEWezAfgS8wjC8riTEbfzAjgy40jyxInDEYfCxEmSxImwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4zLWMwMTEgNjYuMTQ1NjYxLCAyMDEyLzAyLzA2LTE0OjU2OjI3ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3QTFCQkUxQTQxRUYxMUU3OTVFMThBMURCRjcwQ0RERiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3QTFCQkUxQjQxRUYxMUU3OTVFMThBMURCRjcwQ0RERiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdBMUJCRTE4NDFFRjExRTc5NUUxOEExREJGNzBDRERGIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjdBMUJCRTE5NDFFRjExRTc5NUUxOEExREJGNzBDRERGIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAABAAEAAABn3AA4qAKBUGEEUEs8lUVA4h0YhUej6pxEkFQpFCDcBIZFpcs9vuNzwun7Vcb6gkJpuxhrSc3n689V98ZH54gHN1Jh1neXGBAW2KWByGJY9kkSmManOWiQIbKZONnJACkpSdHZ+hqKWgogcMU0cWnq9bsUQURxIKGhcbExxQQQA7">  </div>
+</div>
+    <br />
+    <!-- Open Container -->
+    <div class="container" style="padding-top: 10px; padding-bottom: px;">
+      <div class="flex-middle flex-space-between full-width">
+        <h1 class="black-title">Manage Account</h1>
+        <div class="action-area"></div>
+      </div>
+<!-- Open Account Details Box -->
+<div class="box box-primary">
+  <h3 class="title black-title">Account Details</h3>
+  <section style="display:block">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group form-type-text">
+          <h5 style="font-weight: bold;">Subscription Name:</h5>
+          <h4>{{ subscription_details.name }}</h4>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group form-type-text">
+          <h5 style="font-weight: bold;">Subscription Price:</h5>
+          <h4>{{ subscription_details.price }}</h4>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group form-type-text">
+          <h5 style="font-weight: bold;">Subscription Interval:</h5>
+          <h4>{{ subscription_details.interval }}</h4>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group form-type-text">
+          <h5 style="font-weight: bold;">Current Billing Start Date:</h5>
+          <h4>{{ subscription_details.current_period_start }}</h5>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group form-type-text">
+          <h5 style="font-weight: bold;">Current Billing End Date:</h5>
+          <h4>{{ subscription_details.current_period_end }}</h5>
+        </div>
+      </div>
+      <div class="col-xs-12">
+<div class="form-group form-type-text">
+  <h5 style="font-weight: bold;">Subscription Status:</h5>
+  {% set status_first_word = subscription_details.status.split(' ')[0] %}
+  {% if status_first_word == "Active" %}
+    <h4 style="color: green;">{{ subscription_details.status }}</h4>
+  {% elif status_first_word == "Canceling" %}
+    <h4 style="color: orange;">{{ subscription_details.status }}</h4>
+  {% elif status_first_word == "Billing" %}
+    <h4 style="color: red;">{{ subscription_details.status }}</h4>
+  {% else %}
+    <h4>{{ subscription_details.status }}</h4>
+  {% endif %}
+</div>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- Close Account Details Box -->
+<!-- Open Payment Details Box -->
+<div class="box box-primary">
+  <h3 class="title black-title">Payment Details</h3><br>
+  <form id="payment-form" action="/account" method="post">
+    <input type="hidden" id="payment" name="payment" value="payment">
+    <section style="display:block">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="card-name">Card Holder Name</label>
+            <input id="card-name" type="text" class="form-control" name="card-name" required="" placeholder="Card Holder Name" value="{{ form_data.get('card-name', '') }}" disabled>
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="card-number-element">Card Number</label>
+            <div id="card-number-element" class="form-control" disabled>
+              <!-- Stripe Elements will insert the card number input here -->
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="form-group">
+            <label for="card-expiry-element">Expiration Date</label>
+            <div id="card-expiry-element" class="form-control" disabled>
+              <!-- Stripe Elements will insert the expiry input here -->
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="form-group">
+            <label for="card-cvc-element">CVC</label>
+            <div id="card-cvc-element" class="form-control" disabled>
+              <!-- Stripe Elements will insert the CVC input here -->
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <div class="form-group form-type-text">
+            <label for="billing-address">Billing Address</label>
+            <input id="billing-address" type="text" class="form-control" name="billing-address" placeholder="Billing Address" required="" value="{{ form_data.get('billing-address', '') }}" disabled>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <div class="form-group form-type-select">
+            <label for="billing-country">Billing Country</label>
+            <select id="billing-country" class="form-control" required="" name="billing-country" title="Select the billing country." onchange="updateStates(this.value);" disabled>
+              <option {% if form_data.get('billing-country') == None %}selected {% endif %}disabled>Please select a billing country</option>
+              <option value="US" {% if form_data.get('billing-country') == 'US' %}selected{% endif %}>United States of America</option>
+              <option value="CA" {% if form_data.get('billing-country') == 'CA' %}selected{% endif %}>Canada</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <div class="form-group form-type-select">
+            <label for="billing-state">Billing State/Province</label>
+            <select id="billing-state" class="form-control" required="" name="billing-state" disabled>
+              <!-- Options will be dynamically updated based on selected country -->
+            </select>
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <div class="form-group form-type-text">
+            <label for="billing-zip">Billing Postal Code/ZIP</label>
+            <input id="billing-zip" type="text" class="form-control" name="billing-zip" placeholder="Postal Code/ZIP" required="" autocomplete="postal-code" value="{{ form_data.get('billing-zip', '') }}" disabled>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6">
+              
+                <i class="fa fa-cc-visa"></i>
+                <i class="fa fa-cc-mastercard"></i>
+                <i class="fa fa-cc-amex"></i>
+              
+            </div>
+            <div class="col-xs-12 col-sm-6">
+  <p class="pull-right-sm">
+    <button id="card-update" type="submit" name="card-update" class="btn btn-custom-primary btn-lg btn-block">Edit</button>
+  </p>
+</div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="display:block; margin-top: 10px;">
+        <div id="cc-error" class="col-xs-12" style="{% if show_response %}display:block;{% else %}display:none;{% endif %}">
+        {% if payment_error_msg %}
+            <div style="color: red; border: 1px solid red; padding: 10px;">
+                <p><strong>{{ payment_error_msg }}</strong></p>
+            </div>
+        {% else %}
+            <div style="color: green; border: 1px solid green; padding: 10px;">
+                <p><strong>Payment Information updated successfully!</strong></p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+    </section>
+  </form>
+</div>
+<!-- Close Payment Details Box -->
+<!-- Open Cancel Subscription Box -->
+<div class="box box-primary">
+  <h3 class="title black-title">Cancel Subscription</h3><br>
+  <form id="cancel-form" action="/account" method="post">
+    <input type="hidden" id="cancel-state" name="cancel-state" value="{{ 'canceled' if subscription_canceled else 'not-canceled' }}">
+    <section style="display:block">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row">
+            <div class="col-xs-12 col-sm-9">
+              <p id="cancel-message">
+                Your subscription cancellation will be processed at the beginning of the next billing cycle. You will continue to enjoy access to your subscription services until that time.
+              </p>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+              <p class="pull-right-sm">
+                <button id="cancel-subscription" name="cancel-subscription" type="button" class="btn btn-custom-primary btn-lg btn-block">Cancel</button>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </form>
+</div>
+<!-- Close Cancel Subscription Box -->
+      <div class="box box-primary">
+        <h3 class="title black-title">Invoices</h3><br>
+        <section style="display:block">
+          <div class="row">
+            <div class="col-md-12 col-sm-12">
+              <div class="table-responsive">
+<table id="invoicetable" class="table text-center table-bordered table-striped">
+    <thead>
+        <tr>
+            <th class="text-center hidden-xs hidden-sm hidden-md">Invoice Number</th>
+            <th class="text-center hidden-xs hidden-sm hidden-lg">Number</th>
+            <th class="text-center hidden-xs hidden-sm hidden-md">Invoice Type</th>
+            <th class="text-center hidden-xs hidden-sm">Invoice Date</th>
+            <th class="text-center hidden-md hidden-lg">Date</th>
+            <th class="text-center hidden-xs hidden-sm">Invoice Amount</th>
+            <th class="text-center hidden-md hidden-lg">Amount</th>
+            <th class="text-center hidden-xs hidden-sm">Invoice Status</th>
+            <th class="text-center hidden-md hidden-lg">Status</th>
+            <th class="text-center hidden-xs hidden-sm">&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody id="invoiceHistory">
+        {% for invoice in invoices %}
+        <tr>
+            <td class="text-center hidden-xs hidden-sm hidden-md"><strong>{{ invoice.number }}</strong></td>
+            <td class="text-center hidden-xs hidden-sm hidden-lg"><strong>{{ invoice.number }}</strong></td>
+            <td class="text-center hidden-xs hidden-sm hidden-md">{{ invoice.type }}</td>
+            <td class="text-center hidden-xs hidden-sm">{{ invoice.date.strftime('%B %d, %Y %I:%M%p') }}</td>
+            <td class="text-center hidden-md hidden-lg">{{ invoice.date.strftime('%B %d, %Y') }}</td>
+            <td class="text-center text-success"><strong>${{ '%.2f'|format(invoice.amount) }}</strong></td>
+            <td class="text-center hidden-xs hidden-sm text-capitalize">
+    <strong>
+        {% if invoice.status.strip().lower() == 'paid' %}
+            <span style="color: green;">{{ invoice.status }}</span>
+        {% elif invoice.status.strip().lower() == 'not paid' %}
+            <span style="color: red;">{{ invoice.status }}</span>
+        {% else %}
+            <span>{{ invoice.status }}</span>
+        {% endif %}
+    </strong>
+</td>
+<td class="text-center hidden-md hidden-lg text-capitalize">
+    <strong>
+        {% if invoice.status.strip().lower() == 'paid' %}
+            <span class="glyphicon glyphicon-ok icon-paid" style="color: green;"></span>
+        {% elif invoice.status.strip().lower() == 'not paid' %}
+            <span class="glyphicon glyphicon-remove icon-not-paid" style="color: red;"></span>
+        {% else %}
+            <span class="glyphicon glyphicon-cog icon-processing"></span>
+        {% endif %}
+    </strong>
+</td>
+            <td class="hidden-xs hidden-sm">
+                <p data-placement="top" data-toggle="tooltip" title="Print">
+                    <a href="{{ invoice.receipt_url }}" target="_blank" class="btn btn-custom-primary btn-xs">
+                        <span class="glyphicon glyphicon-print"></span> Print
+                    </a>
+                </p>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+              </div>
+            </div>
+            <ul class="list-group-primary pagination pull-right" style="border-color:inherit" id="invoicePager"></ul>
+          </div>
+        </section>
+      </div>
+    </div>
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer">
+        <div class="container">
+          <div class="map">
+            <div class="center">
+              <h4>COMPANY INFO</h4>
+              <ul>
+                <li><a class="footer-links" href="/about">About Us</a></li>
+                <li><a class="footer-links" href="/terms">Terms of Service</a></li>
+                <li><a class="footer-links" href="/privacy">Privacy Policy</a></li>
+                <li><a class="footer-links" href="/faq">Frequently Asked Questions</a></li>
+              </ul>
+            </div>
+            <div class="center">
+              <h4>CONNECT WITH US</h4>
+              <ul>
+                <li><a class="footer-links" href="/contact">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          <hr />
+          <div class="social" style="overflow: auto; margin-top: 40px; margin-bottom: 40px;">
+            <div class="social-buttons" style="float: left; overflow: auto;">
+              <h3 style="float: left;">Follow Us</h3>
+              <ul class="socbut" style="float: left; list-style-type: none; height: 40px; line-height: 24px; margin-bottom: 0px; margin-left: 5px; margin-top: 20px; padding-left: 0px; padding-bottom: 5px;">
+                <li style="display: inline; padding-left: 7px; padding-right: 7px;">
+                  <a href="{{ seometa.LINKEDIN }}" target="_blank">
+                  <img src="{{ url_for('static', filename='images/linkdin.svg') }}" width="30px" 
+                    onmouseover="this.src='{{ url_for('static', filename='images/linkdin_hover.svg') }}'" 
+                    onmouseout="this.src='{{ url_for('static', filename='images/linkdin.svg') }}'" />
+                  </a>
+                </li>
+                <li style="display: inline; padding-left: 7px; padding-right: 7px;">
+                  <a href="{{ seometa.TWITTER }}" target="_blank">
+                  <img src="{{ url_for('static', filename='images/twitter.svg') }}" width="30px" 
+                    onmouseover="this.src='{{ url_for('static', filename='images/twitter_hover.svg') }}'" 
+                    onmouseout="this.src='{{ url_for('static', filename='images/twitter.svg') }}'" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <hr />
+          <div class="copyright" style="padding-top: 25px; padding-bottom: 25px">
+            <center>
+              <p><a class="footer-links" href="{{ seometa.ORG_URL }}">&copy; 2024 Improbability Labs Inc.</a></p>
+            </center>
+          </div>
+          <p class="pull-right"><a class="footer-links" href="#">Back to top</a></p>
+        </div>
+      </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{{ url_for('static', filename='js/ie10-viewport-bug-workaround.js') }}"></script>
+    <script>
+        var stripe = Stripe('{{ STRIPE_PUB_KEY }}'); 
+    </script>
+    <script src="{{ url_for('static', filename='js/stripe.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/improbability.js') }}"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const countrySelect = document.getElementById('billing-country');
+            if (countrySelect) {
+                const selectedCountry = countrySelect.value;
+                if (selectedCountry) {
+                    updateStates(selectedCountry);
+                    
+                    // Set the state/province if it was previously selected
+                    const selectedState = "{{ form_data.get('billing-state', '') }}";
+                    if (selectedState) {
+                        const stateSelect = document.getElementById('billing-state');
+                        const options = stateSelect.options;
+                        for (let i = 0; i < options.length; i++) {
+                            if (options[i].value === selectedState) {
+                                options[i].selected = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+// Attach the toggleEdit function to the button click event
+document.getElementById('card-update').addEventListener('click', togglePaymentEdit);
+
+document.addEventListener('DOMContentLoaded', function() {
+  var cancelState = document.getElementById('cancel-state').value;
+  var button = document.getElementById('cancel-subscription');
+  var message = document.getElementById('cancel-message');
+
+  if (cancelState === 'canceled') {
+    button.name = 'stop-cancel';
+    button.textContent = 'Stop Cancellation';
+    message.textContent = 'Subscription cancellation is confirmed. Click "Stop Cancellation" to undo.';
+    message.style.color = 'green';
+  }
+
+  button.addEventListener('click', function(event) {
+    if (button.name === 'cancel-subscription') {
+      // Change button state to confirm
+      button.name = 'confirm-cancel';
+      button.textContent = 'Confirm';
+      // Update message
+      message.textContent = 'Please confirm your subscription cancellation.';
+      message.style.color = 'red';
+    } else if (button.name === 'confirm-cancel') {
+      // Submit the form to confirm cancellation
+      document.getElementById('cancel-state').value = 'canceled';
+      document.getElementById('cancel-form').submit();
+    } else if (button.name === 'stop-cancel') {
+      // Submit the form to stop cancellation
+      document.getElementById('cancel-state').value = 'not-canceled';
+      document.getElementById('cancel-form').submit();
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    function disableStripeElements() {
+        if (typeof cardNumber !== 'undefined' && typeof cardExpiry !== 'undefined' && typeof cardCvc !== 'undefined') {
+
+            const disabledStyle = {
+                'base': {
+                    'color': '#6c757d', // Grey color for disabled text
+                    'backgroundColor': '#e9ecef', // Light grey background
+                    'cursor': 'not-allowed',
+                    'opacity': '1' 
+                }
+            };
+
+            cardNumber.update({ disabled: true, style: disabledStyle });
+            cardExpiry.update({ disabled: true, style: disabledStyle });
+            cardCvc.update({ disabled: true, style: disabledStyle });
+        } else {
+            // Retry after a short delay if the elements are not defined yet
+            setTimeout(disableStripeElements, 100);
+        }
+    }
+    disableStripeElements();
+});
+    </script>
+  </body>
+</html>
