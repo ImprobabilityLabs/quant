@@ -39,29 +39,12 @@ def configure_routes(app):
 
     @app.route('/', methods=['GET', 'POST'])
     def index_page():
-        referrer = request.args.get('referrer')
-        if referrer:
-            session['referrer'] = referrer
-            current_app.logger.info(f'Referrer set to: {referrer}')
-        if session.get('user_provider_id'):
-            member = check_user_subscription(session.get('user_provider_id'))
-            is_user = member['is_user']
-        else:
-            member = check_user_subscription(None)
-            is_user = False
-        product_data = get_products()
         current_app.logger.info('Info: Index Page - Member Object: ' + str(member))
-        menu = generate_menu(member)
         return render_template('index.html', seometa=MetaTags)
 
     @app.route('/contact', methods=['GET', 'POST'])
     def contact_page():
-        if session.get('user_provider_id'):
-            member = check_user_subscription(session.get('user_provider_id'))
-        else:
-            member = check_user_subscription(None)
         current_app.logger.info('Info: Contact Page - Member Object: ' + str(member))
-        menu = generate_menu(member)
         return render_template('contact.html', seometa=MetaTags)
 
     @sitemap.register_generator
