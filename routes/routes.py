@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify, abort, current_app, Response
 from flask_sitemap import Sitemap
-from utils.utility import get_stock_data, check_openai_key
+from utils.utility import get_stock_data, check_openai_key, open_ai_anaysis
 import openai
 import pandas as pd
 from datetime import datetime
