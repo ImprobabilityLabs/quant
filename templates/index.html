@@ -78,7 +78,7 @@
 <style>
   #ai-model {
     border-color: red;
-    box-shadow: 0 0 5px red; /* Optional: Adds a glow effect */
+    box-shadow: 0 0 5px red; 
   }
 </style>
 {% endif %}
@@ -86,23 +86,23 @@
 <style>
   #stock-period {
     border-color: red;
-    box-shadow: 0 0 5px red; /* Optional: Adds a glow effect */
+    box-shadow: 0 0 5px red; 
   }
 </style>
 {% endif %}
-{% if error and form_data.get('stock-ticker') == None %}
+{% if error and (form_data.get('stock-ticker') == None or stock_error) %}
 <style>
   #stock-ticker {
     border-color: red;
-    box-shadow: 0 0 5px red; /* Optional: Adds a glow effect */
+    box-shadow: 0 0 5px red; 
   }
 </style>
 {% endif %}
-{% if error and form_data.get('api-key') == None %}
+{% if error and (form_data.get('stock-ticker') == None or api_error) %}
 <style>
   #api-key {
     border-color: red;
-    box-shadow: 0 0 5px red; /* Optional: Adds a glow effect */
+    box-shadow: 0 0 5px red;
   }
 </style>
 {% endif %}
