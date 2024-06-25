@@ -44,6 +44,7 @@ def configure_routes(app):
         api_error = None
         stock_error = None
         input_error = None
+        openai_error = None
         output_analysis = None
         if request.method == 'POST':
             current_app.logger.info('Received POST request with following form data:')
@@ -70,9 +71,11 @@ def configure_routes(app):
                     stock_error = message
                 else:
                     datacsv = data.to_csv()
-                    output_analysis = open_ai_anaysis(api_key, model, ticker, datacsv)
+                    output_analysis, openai_error = open_ai_anaysis(api_key, model, ticker, datacsv)
+                    if openai_error:
+                        error = True
                     current_app.logger.info(f'index --> output_analysis: {output_analysis}')
-        return render_template('index.html', seometa=MetaTags, output_analysis=output_analysis, form_data=request.form, error=error, api_error=api_error, stock_error=stock_error, input_error=input_error)
+        return render_template('index.html', seometa=MetaTags, output_analysis=output_analysis, form_data=request.form, error=error, openai_error=openai_error, api_error=api_error, stock_error=stock_error, input_error=input_error)
 
     @app.route('/contact', methods=['GET', 'POST'])
     def contact_page():
