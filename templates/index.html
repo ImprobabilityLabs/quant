@@ -311,10 +311,10 @@
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script>
+<script type="module">
+  import { marked } from 'https://cdn.skypack.dev/marked';
+
   document.addEventListener('DOMContentLoaded', function () {
-    // Safely encode the markdown text for JavaScript
     let markdownText = {{ output_analysis | tojson }};
     let htmlText = marked(markdownText);
     document.getElementById('improbability-analysis-result').innerHTML = '<p>' + htmlText + '</p>';
