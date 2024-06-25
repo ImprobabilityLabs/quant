@@ -205,6 +205,7 @@
               <div class="col-xs-12">
                 <!-- Analyze Button -->
                 <div id="improbability-quant-analyze-button" class="form-group">
+                  <br>
                   <button type="submit" class="btn btn-custom-primary btn-lg btn-block">Analyze</button>
                 </div>
               </div>
@@ -212,7 +213,6 @@
           </section>
         </div>
       </form>
-      <br>
       <div class="row" style="display:block">
         <div id="quant-error" class="col-xs-12" style="{% if error %}display:block{% else %}display:none{% endif %}">
           {% if error %}
@@ -239,6 +239,7 @@
               <div id="improbability-analysis">
                 <div id="improbability-analysis-result">
                 </div>
+                <br>
                 <div class="form-group">
                   <a href="{{ request.url }}" class="btn btn-custom-primary btn-lg btn-block">Reset Form</a>
                 </div>
@@ -318,9 +319,6 @@
     let markdownText = {{ output_analysis | tojson }};
     let htmlText = marked(markdownText); // or marked.parse(markdownText) if using .parse()
     document.getElementById('improbability-analysis-result').innerHTML = '<p>' + htmlText + '</p>';
-
-    console.log('Markdown Text:', markdownText);
-    console.log('HTML Text:', htmlText);
   });
 </script>
     <script>
