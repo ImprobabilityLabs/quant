@@ -47,9 +47,6 @@ def configure_routes(app):
         openai_error = None
         output_analysis = None
         if request.method == 'POST':
-            current_app.logger.info('Received POST request with following form data:')
-            for key in request.form:
-                current_app.logger.info(f'{key}: {request.form[key]}')
             # Validate form data
             required_fields = [
                 'api-key', 'ai-model', 'stock-ticker', 'stock-period'
