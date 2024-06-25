@@ -119,24 +119,27 @@ def open_ai_anaysis(api_key, model, ticker, csv_data):
     # Initialize the OpenAI client
     client = OpenAI(api_key=api_key)
 
-    # Create a chat completion request using the system and user messages
-    response = client.chat.completions.create(
-        model=model,
-        messages=[
-            {
-                "role": "system",
-                "content": system_prompt
-            },
-            {
-                "role": "user",
-                "content": csv_data
-            }
-        ],
-        temperature=1,
-        top_p=1,
-        frequency_penalty=0,
-        presence_penalty=0
-    )
+    try:
+        # Create a chat completion request using the system and user messages
+        response = client.chat.completions.create(
+            model=model,
+            messages=[
+                {
+                    "role": "system",
+                    "content": system_prompt
+                },
+                {
+                    "role": "user",
+                    "content": csv_data
+                }
+            ],
+            temperature=1,
+            top_p=1,
+            frequency_penalty=0,
+            presence_penalty=0
+        )
 
-    # Return the final response text from the AI
-    return response.choices[0].message.content
+        # Return the final response text from the AI
+        return response.choices[0].message.content, None
+    except Exception as e:
+        return None, f"An unexpected error occurred: {str(e)}"
