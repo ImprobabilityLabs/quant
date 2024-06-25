@@ -142,4 +142,4 @@ def open_ai_anaysis(api_key, model, ticker, csv_data):
         # Return the final response text from the AI
         return response.choices[0].message.content, None
     except Exception as e:
-        return None, f"An unexpected error occurred: {str(e)}"
+        return None, str(e)
