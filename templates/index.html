@@ -178,6 +178,7 @@
                   <select id="ai-model" name="ai-model" class="form-control" required>
                   <option {% if form_data.get('ai-model') == None %}selected {% endif %}disabled>Please select an AI Model</option>
                   <option value="gpt-4o" {% if form_data.get('ai-model') == 'gpt-4o' %}selected{% endif %}>OpenAI GPT-4o (Cheapest)</option>
+                  <option value="gpt-4-turbo" {% if form_data.get('ai-model') == 'gpt-4-turbo' %}selected{% endif %}>OpenAI GPT-4-Turbo</option>
                   </select>
                 </div>
               </div>
