@@ -97,7 +97,7 @@
       }
     </style>
     {% endif %}
-    {% if error and (form_data.get('stock-ticker') == None or api_error) %}
+    {% if error and (form_data.get('api-key') == None or api_error or openai_error) %}
     <style>
       #api-key {
       border-color: red;
