@@ -74,41 +74,41 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{{ url_for('static', filename='css/improbability.css') }}" rel="stylesheet">
     {% if error and form_data.get('ai-model') == None %}
-<style>
-  #ai-model {
-    border-color: red;
-    box-shadow: 0 0 5px red; 
-  }
-</style>
-{% endif %}
-{% if error and form_data.get('stock-period') == None %}
-<style>
-  #stock-period {
-    border-color: red;
-    box-shadow: 0 0 5px red; 
-  }
-</style>
-{% endif %}
-{% if error and (form_data.get('stock-ticker') == None or stock_error) %}
-<style>
-  #stock-ticker {
-    border-color: red;
-    box-shadow: 0 0 5px red; 
-  }
-</style>
-{% endif %}
-{% if error and (form_data.get('stock-ticker') == None or api_error) %}
-<style>
-  #api-key {
-    border-color: red;
-    box-shadow: 0 0 5px red;
-  }
-</style>
-{% endif %}
+    <style>
+      #ai-model {
+      border-color: red;
+      box-shadow: 0 0 5px red; 
+      }
+    </style>
+    {% endif %}
+    {% if error and form_data.get('stock-period') == None %}
+    <style>
+      #stock-period {
+      border-color: red;
+      box-shadow: 0 0 5px red; 
+      }
+    </style>
+    {% endif %}
+    {% if error and (form_data.get('stock-ticker') == None or stock_error) %}
+    <style>
+      #stock-ticker {
+      border-color: red;
+      box-shadow: 0 0 5px red; 
+      }
+    </style>
+    {% endif %}
+    {% if error and (form_data.get('stock-ticker') == None or api_error) %}
+    <style>
+      #api-key {
+      border-color: red;
+      box-shadow: 0 0 5px red;
+      }
+    </style>
+    {% endif %}
   </head>
   <body>
-        <div id="sms-improbability-overlay" class="sms-improbability-overlay">
-        <i class="fa fa-gear sms-improbability-spinner"></i>
+    <div id="sms-improbability-overlay" class="sms-improbability-overlay">
+      <i class="fa fa-gear sms-improbability-spinner"></i>
     </div>
     <div class="headbar">
       <div class="container">
@@ -152,21 +152,18 @@
           <section style="display:block">
             <div class="row">
               <div class="col-xs-12">
-              <p>Welcome to our AI-driven stock analysis tool. This service allows you to harness the power of artificial intelligence to analyze stock performance and predict potential trading opportunities for the next period—be it daily, weekly, or monthly.</p>
-
-<p><strong>How to use:</strong></p>
-<ol>
-  <li><strong>Enter your OpenAI API Key:</strong> This key enables the AI model to process your request. <a href="https://platform.openai.com/api-keys" target="_blank">Get your API Key here.</a></li>
-  <li><strong>Select an AI Model:</strong> Choose the model that will analyze the stock data.</li>
-  <li><strong>Input the Stock Ticker:</strong> Provide the ticker symbol for the stock you wish to analyze.</li>
-  <li><strong>Choose the Analysis Period:</strong> Select the timeframe for the analysis: Daily, Weekly, or Monthly.</li>
-</ol>
-
-<p>Based on the provided stock ticker and period, the AI will analyze the stock using technical indicators. For <strong>long</strong> positions, if a favorable buying opportunity is detected, the AI will recommend a <strong>Buy at Market</strong> strategy, suggest a <strong>Limit Sell</strong> price for taking profits, and recommend setting a <strong>Trailing Stop Loss</strong> to protect gains. For <strong>short</strong> positions, the AI will advise a <strong>Sell at Market</strong> strategy when it predicts a decline, suggest a <strong>Limit Buy</strong> price to cover the short, and recommend a <strong>Trailing Stop Buy</strong> to manage potential losses.</p>
-
-<p>The AI provides clear, actionable advice, allowing you to make informed decisions on your trades for the upcoming period. Please note that all trading involves risk, and it is advisable to consider your financial situation and consult with a financial advisor before trading.</p>
-<hr>
-            </div>
+                <p>Welcome to our AI-driven stock analysis tool. This service allows you to harness the power of artificial intelligence to analyze stock performance and predict potential trading opportunities for the next period—be it daily, weekly, or monthly.</p>
+                <p><strong>How to use:</strong></p>
+                <ol>
+                  <li><strong>Enter your OpenAI API Key:</strong> This key enables the AI model to process your request. <a href="https://platform.openai.com/api-keys" target="_blank">Get your API Key here.</a></li>
+                  <li><strong>Select an AI Model:</strong> Choose the model that will analyze the stock data.</li>
+                  <li><strong>Input the Stock Ticker:</strong> Provide the ticker symbol for the stock you wish to analyze.</li>
+                  <li><strong>Choose the Analysis Period:</strong> Select the timeframe for the analysis: Daily, Weekly, or Monthly.</li>
+                </ol>
+                <p>Based on the provided stock ticker and period, the AI will analyze the stock using technical indicators. For <strong>long</strong> positions, if a favorable buying opportunity is detected, the AI will recommend a <strong>Buy at Market</strong> strategy, suggest a <strong>Limit Sell</strong> price for taking profits, and recommend setting a <strong>Trailing Stop Loss</strong> to protect gains. For <strong>short</strong> positions, the AI will advise a <strong>Sell at Market</strong> strategy when it predicts a decline, suggest a <strong>Limit Buy</strong> price to cover the short, and recommend a <strong>Trailing Stop Buy</strong> to manage potential losses.</p>
+                <p>The AI provides clear, actionable advice, allowing you to make informed decisions on your trades for the upcoming period. Please note that all trading involves risk, and it is advisable to consider your financial situation and consult with a financial advisor before trading.</p>
+                <hr>
+              </div>
               <!-- OpenAI API Key -->
               <div class="col-xs-12 col-md-6">
                 <div class="form-group form-type-text">
@@ -179,10 +176,10 @@
                 <div class="form-group form-type-select">
                   <label for="ai-model">Select AI Model</label>
                   <select id="ai-model" name="ai-model" class="form-control" required>
-                    <option {% if form_data.get('ai-model') == None %}selected {% endif %}disabled>Please select an AI Model</option>
-                    <option value="gpt-4o" {% if form_data.get('ai-model') == 'gpt-4o' %}selected{% endif %}>OpenAI GPT-4o (Cheapest)</option>
-                    <option value="gpt-4-turbo" {% if form_data.get('ai-model') == 'gpt-4-turbo' %}selected{% endif %}>OpenAI GPT-4 Turbo</option>
-                    <option value="gpt-4" {% if form_data.get('ai-model') == 'gpt-4' %}selected{% endif %}>OpenAI GPT-4 (Most Expensive)</option>
+                  <option {% if form_data.get('ai-model') == None %}selected {% endif %}disabled>Please select an AI Model</option>
+                  <option value="gpt-4o" {% if form_data.get('ai-model') == 'gpt-4o' %}selected{% endif %}>OpenAI GPT-4o (Cheapest)</option>
+                  <option value="gpt-4-turbo" {% if form_data.get('ai-model') == 'gpt-4-turbo' %}selected{% endif %}>OpenAI GPT-4 Turbo</option>
+                  <option value="gpt-4" {% if form_data.get('ai-model') == 'gpt-4' %}selected{% endif %}>OpenAI GPT-4 (Most Expensive)</option>
                   </select>
                 </div>
               </div>
@@ -198,10 +195,10 @@
                 <div class="form-group form-type-select">
                   <label for="stock-period">Period</label>
                   <select id="stock-period" name="stock-period" class="form-control" required>
-                    <option {% if form_data.get('stock-period') == None %}selected {% endif %}disabled>Please select a Period</option>
-                    <option value="1d" {% if form_data.get('stock-period') == '1d' %}selected{% endif %}>Daily</option>
-                    <option value="1wk" {% if form_data.get('stock-period') == '1wk' %}selected{% endif %}>Weekly</option>
-                    <option value="1mo" {% if form_data.get('stock-period') == '1mo' %}selected{% endif %}>Monthly</option>
+                  <option {% if form_data.get('stock-period') == None %}selected {% endif %}disabled>Please select a Period</option>
+                  <option value="1d" {% if form_data.get('stock-period') == '1d' %}selected{% endif %}>Daily</option>
+                  <option value="1wk" {% if form_data.get('stock-period') == '1wk' %}selected{% endif %}>Weekly</option>
+                  <option value="1mo" {% if form_data.get('stock-period') == '1mo' %}selected{% endif %}>Monthly</option>
                   </select>
                 </div>
               </div>
@@ -209,7 +206,7 @@
                 <!-- Analyze Button -->
                 <div id="improbability-quant-analyze-button" class="form-group">
                   <br>
-                  <button type="submit" class="btn btn-custom-primary btn-lg btn-block">Analyze</button>
+                  <button type="submit" class="btn btn-custom-primary btn-lg btn-block" id="analyzeButton">Analyze</button>
                 </div>
               </div>
             </div>
@@ -222,61 +219,67 @@
           <div style="color: red; border: 1px solid red; padding: 10px;">
             <p><strong>Please correct the following errors:</strong></p>
             <ul>
-              {% if api_error %}<li>{{ api_error }}</li>{% endif %}
-              {% if stock_error %}<li>{{ stock_error }}</li>{% endif %}
-              {% if input_error %}<li>{{ input_error }}</li>{% endif %}
+              {% if api_error %}
+              <li>{{ api_error }}</li>
+              {% endif %}
+              {% if stock_error %}
+              <li>{{ stock_error }}</li>
+              {% endif %}
+              {% if input_error %}
+              <li>{{ input_error }}</li>
+              {% endif %}
             </ul>
           </div>
           {% endif %}
         </div>
       </div>
       <div class="flex-middle flex-space-between full-width" {% if output_analysis is none %}style="display:none"{% endif %}>
-        <h1>{{form_data.get('stock-ticker')}} Analysis</h1>
-        <div class="action-area"></div>
-      </div>
-      <div class="box box-primary" {% if output_analysis is none %}style="display:none"{% endif %}>
-        <section style="display:block">
-          <div class="row">
-            <div class="col-xs-12">
-              <!-- Analysis Result -->
-              <div id="improbability-analysis">
-                <div id="improbability-analysis-result">
-                </div>
-                <br>
-                <div class="form-group">
-                  <a href="{{ request.url }}" class="btn btn-custom-primary btn-lg btn-block">Reset Form</a>
-                </div>
-              </div>
+      <h1>{{form_data.get('stock-ticker')}} Analysis</h1>
+      <div class="action-area"></div>
+    </div>
+    <div class="box box-primary" {% if output_analysis is none %}style="display:none"{% endif %}>
+    <section style="display:block">
+      <div class="row">
+        <div class="col-xs-12">
+          <!-- Analysis Result -->
+          <div id="improbability-analysis">
+            <div id="improbability-analysis-result">
+            </div>
+            <br>
+            <div class="form-group">
+              <a href="{{ request.url }}" class="btn btn-custom-primary btn-lg btn-block">Reset Form</a>
             </div>
           </div>
-        </section>
+        </div>
       </div>
-      <!-- Close Our Plans Box -->
-      <br>
-      <div class="flex-middle flex-space-between full-width">
-        <h1>Disclaimer</h1>
-        <div class="action-area"></div>
-      </div>
-      <div class="box box-primary">
-        <section style="display:block">
-          <div class="row">
-            <div class="col-xs-12">
-              <p>
-                Improbability Labs Inc. provides this tool for informational purposes only. We do not offer investment advice or recommendations. Users are responsible for their own investment decisions. Our platform does not store or save any personal data, such as your OpenAI API key or any financial information. The API key entered is used solely for the session to process your requests and is not retained after the session ends.
-              </p>
-              <p>
-                The stock data utilized by this tool is provided by <a href="https://pypi.org/project/yfinance/" target="_blank">yfinance</a>, a Python library that fetches historical market data from Yahoo Finance. We make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.
-              </p>
-              <p>
-                Improbability Labs Inc. is not responsible for any losses, damages, or other liabilities incurred as a result of using this tool. The financial guidance provided by the API is based on algorithms and should not be taken as personal financial advice. It is important to conduct your own analysis or consult with a professional financial advisor before making any investment decisions.
-              </p>
-              <p>
-                By using this service, you acknowledge and agree that you understand this disclaimer and agree to its terms.
-              </p>
-            </div>
+    </section>
+    </div>
+    <!-- Close Our Plans Box -->
+    <br>
+    <div class="flex-middle flex-space-between full-width">
+      <h1>Disclaimer</h1>
+      <div class="action-area"></div>
+    </div>
+    <div class="box box-primary">
+      <section style="display:block">
+        <div class="row">
+          <div class="col-xs-12">
+            <p>
+              Improbability Labs Inc. provides this tool for informational purposes only. We do not offer investment advice or recommendations. Users are responsible for their own investment decisions. Our platform does not store or save any personal data, such as your OpenAI API key or any financial information. The API key entered is used solely for the session to process your requests and is not retained after the session ends.
+            </p>
+            <p>
+              The stock data utilized by this tool is provided by <a href="https://pypi.org/project/yfinance/" target="_blank">yfinance</a>, a Python library that fetches historical market data from Yahoo Finance. We make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.
+            </p>
+            <p>
+              Improbability Labs Inc. is not responsible for any losses, damages, or other liabilities incurred as a result of using this tool. The financial guidance provided by the API is based on algorithms and should not be taken as personal financial advice. It is important to conduct your own analysis or consult with a professional financial advisor before making any investment decisions.
+            </p>
+            <p>
+              By using this service, you acknowledge and agree that you understand this disclaimer and agree to its terms.
+            </p>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+    </div>
     </div>
     <!-- FOOTER -->
     <footer>
@@ -315,15 +318,15 @@
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script type="module">
-  import { marked } from "https://cdn.skypack.dev/marked@4.0.16";
-
-  document.addEventListener('DOMContentLoaded', function () {
-    let markdownText = {{ output_analysis | tojson }};
-    let htmlText = marked(markdownText); // or marked.parse(markdownText) if using .parse()
-    document.getElementById('improbability-analysis-result').innerHTML = '<p>' + htmlText + '</p>';
-  });
-</script>
+    <script type="module">
+      import { marked } from "https://cdn.skypack.dev/marked@4.0.16";
+      
+      document.addEventListener('DOMContentLoaded', function () {
+        let markdownText = {{ output_analysis | tojson }};
+        let htmlText = marked(markdownText); // or marked.parse(markdownText) if using .parse()
+        document.getElementById('improbability-analysis-result').innerHTML = '<p>' + htmlText + '</p>';
+      });
+    </script>
     <script>
       function updateTextBasedOnScreenSize() {
           var brandText = document.getElementById('brandText');
@@ -335,6 +338,9 @@
       }
       window.addEventListener('resize', updateTextBasedOnScreenSize);
       updateTextBasedOnScreenSize();
+      document.getElementById('improbability-quant-form').addEventListener('submit', function(event) {
+          document.getElementById('sms-improbability-overlay').style.display = 'flex';
+      });
     </script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{{ url_for('static', filename='js/ie10-viewport-bug-workaround.js') }}"></script>
