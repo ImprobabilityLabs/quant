@@ -142,4 +142,4 @@ def open_ai_anaysis(api_key, model, ticker, csv_data):
         # Return the final response text from the AI
         return response.choices[0].message.content, None
     except Exception as e:
-        return None, "OpenAI Error! You probably don't have the model {model} available to your key."
+        return None, f"OpenAI Error! You probably don't have the model {model} available to your key. {str(e)}"
