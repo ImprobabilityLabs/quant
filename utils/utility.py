@@ -112,8 +112,8 @@ def open_ai_anaysis(api_key, model, ticker, csv_data):
         "recommended Limit Sell price along with a Trailing Stop Loss (either in value or percentage). Conversely, if a "
         "selling opportunity for a short position is detected, reply with 'SELL', including a specific Limit Sell price "
         "and a Trailing Buy Stop Loss (either in price or percentage). If no definitive trading signal is found, respond "
-        "with 'None'. Where possible explain the rationale, and include a short bio of the ticker at the top of the "
-        "response. Use the attached CSV file for performing the analysis:"
+        "with 'None'. Where possible explain the rationale, define the support and resistance  levels, and include a "
+        "short bio of the ticker at the top of the response. Use the attached CSV file for performing the analysis:"
     )
 
     # Initialize the OpenAI client
