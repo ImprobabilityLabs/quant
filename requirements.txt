@@ -1,0 +1,8 @@
+Flask
+requests
+openai
+yfinance
+pandas
+pandas-ta
+Werkzeug
+Flask-Sitemap
