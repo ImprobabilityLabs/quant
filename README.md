@@ -111,16 +111,42 @@ We welcome contributions! Please follow these steps:
 - Commit your changes with clear messages.
 - Submit a pull request to the main branch.
 
+## Support
+
+While I'd love to help everyone, please note that support is offered sporadically and largely depends on my availability (and, let's be honest, my mood). I've invested time in thoroughly documenting each command within the scripts, aiming to make them as understandable and modifiable as possible for you.
+
+## Donations
+
+*"Many Bothans died to bring us this information."*
+
+If you appreciate this project and wish to honor the efforts (and the Bothans), consider sending a donation:
+
+- **Ethereum (ETH) Mainnet:** `0x1F4EABD7495E4B3D1D4F6dac07f953eCb28fD798`
+- **BNB Chain:** `0x1F4EABD7495E4B3D1D4F6dac07f953eCb28fD798`
+
+Your support is greatly appreciated!
+
 ## License
 This project is licensed under the Apache License 2.0.
 
 ## Contact
-*Website:* improbability.io
 
-*Email:* support@improbability.io
+For any inquiries, please reach out to us:
 
-*Improbability Labs LinkedIn:* https://www.linkedin.com/company/improbability-labs/
+### Improbability Labs Inc.
 
-*Rahim's LinkedIn:* https://www.linkedin.com/in/rahim-khoja-879944139/
+- **Website:** [improbability.io](https://improbability.io)
+- **Email:** [support@improbability.io](mailto:support@improbability.io)
+- **LinkedIn:** [Improbability Labs on LinkedIn](https://www.linkedin.com/company/improbability-labs/)
 
-Developed by Improbability Labs Inc. [Rahim Khoja](mailto:rahim@khoja.ca)
+### Developed by
+
+**Rahim Khoja**
+
+- **Email:** [rahim@khoja.ca](mailto:rahim@khoja.ca)
+- **LinkedIn:** [Rahim Khoja on LinkedIn](https://www.linkedin.com/in/rahim-khoja-879944139/)
+
+---
+
+We welcome your feedback and are here to assist with any questions or issues you may have.
+
