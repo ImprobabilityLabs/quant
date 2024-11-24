@@ -80,7 +80,7 @@ flask run
 
 The application will be available at http://localhost:5000.
 
-### Usage
+## Usage
 Open the application in your web browser.
 Enter your OpenAI API key.
 Select the AI model (e.g., gpt-4).
@@ -88,7 +88,7 @@ Input the stock ticker symbol (e.g., AAPL for Apple Inc.).
 Choose the stock period (1d, 1wk, or 1mo).
 Click Submit to receive the AI-generated analysis.
 
-### Requirements
+## Requirements
 *Python Packages:*
 - Flask
 - yfinance
@@ -98,14 +98,14 @@ Click Submit to receive the AI-generated analysis.
 - requests
 - gunicorn
 
-### System Services:
+## System Services:
 - Nginx (for serving the application)
 - Systemd (for managing the application service)
 
 ## Contributing
 We welcome contributions! Please follow these steps:
 
-### Fork the repository.
+- Fork the repository.
 - Create a new branch for your feature or bugfix.
 - Commit your changes with clear messages.
 - Submit a pull request to the main branch.
