@@ -115,9 +115,12 @@ We welcome contributions! Please follow these steps:
 This project is licensed under the Apache License 2.0.
 
 ## Contact
-Website: improbability.io
-Email: support@improbability.io
-LinkedIn: https://www.linkedin.com/company/improbability-labs/
-Rahim's LinkedIn: https://www.linkedin.com/in/rahim-khoja-879944139/
+*Website:* improbability.io
+
+*Email:* support@improbability.io
+
+*Improbability Labs LinkedIn:* https://www.linkedin.com/company/improbability-labs/
+
+*Rahim's LinkedIn:* https://www.linkedin.com/in/rahim-khoja-879944139/
 
 Developed by Improbability Labs Inc. [Rahim Khoja](mailto:rahim@khoja.ca)
