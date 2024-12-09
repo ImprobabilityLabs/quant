@@ -6,3 +6,4 @@ pandas
 pandas-ta
 Werkzeug
 Flask-Sitemap
+groq
