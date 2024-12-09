@@ -8,7 +8,7 @@ WorkingDirectory=/opt/improbability/quant
 User=root
 Group=root
 EnvironmentFile=/etc/improbability/exports_quant
-PassEnvironment=LOG_PATH SECRET_KEY GOOGLE_ANALYTICS_ID GOOGLE_SITE_VERIFICATION BING_SITE_VERIFICATION 
+PassEnvironment=LOG_PATH SECRET_KEY GOOGLE_ANALYTICS_ID GOOGLE_SITE_VERIFICATION BING_SITE_VERIFICATION GROQ_API_KEY
 Restart=always
 
 [Install]
