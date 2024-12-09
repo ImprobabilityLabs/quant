@@ -49,18 +49,13 @@ def configure_routes(app):
         if request.method == 'POST':
             # Validate form data
             required_fields = [
-                'api-key', 'ai-model', 'stock-ticker', 'stock-period'
+                'stock-ticker', 'stock-period'
             ]
             if not all(field in request.form for field in required_fields):
                 error = True
                 input_error = 'Please complete all required fields.'
-            api_key = request.form.get('api-key')
             ticker = request.form.get('stock-ticker')
             period = request.form.get('stock-period')
-            model = request.form.get('ai-model')
-            if (api_key is None or api_key == '') or not check_openai_key(api_key):
-                error = True
-                api_error = 'Invalid or Missing API Key. Please enter a valid API key.'   
             if not error:
                 data, success, message = get_stock_data(ticker, period)
                 if not success:
@@ -68,7 +63,7 @@ def configure_routes(app):
                     stock_error = message
                 else:
                     datacsv = data.to_csv()
-                    output_analysis, openai_error = open_ai_anaysis(api_key, model, ticker, datacsv)
+                    output_analysis, openai_error = groq_cloud_anaysis(ticker, datacsv)
                     if openai_error:
                         error = True
                     current_app.logger.info(f'index --> output_analysis: {output_analysis}')
