@@ -11,6 +11,11 @@ import yfinance as yf
 import pandas_ta as ta
 import pandas as pd
 
+from groq import Groq
+
+
+
+
 
 def check_openai_key(api_key):
     """
@@ -90,6 +95,59 @@ def get_stock_data(ticker, interval):
 
     current_app.logger.info(f'get_stock_data: data: {str(data)}')
     return data, True, "Data successfully retrieved and processed."
+
+
+def groq_cloud_anaysis(ticker, csv_data):
+    """
+    Requests a chat completion from GroqCloud's Llama 3.3 model to analyze stock data and identify trading opportunities.
+    
+    Parameters:
+        ticker (str): The stock ticker symbol for which the analysis is requested.
+        csv_data (str): The CSV data representing OHLCV values for the stock.
+    
+    Returns:
+        str: The recommendation from the AI based on the analysis of the stock data.
+    """
+    # Define the system prompt for the analysis request
+    system_prompt = (
+        f"Analyze the provided OHLCV stock data for ticker {ticker} to uncover potential trading opportunities. "
+        "If a favorable buying opportunity is identified for the upcoming period, reply with 'BUY', and provide a "
+        "recommended Limit Sell price along with a Trailing Stop Loss (either in value or percentage). Conversely, if a "
+        "selling opportunity for a short position is detected, reply with 'SELL', including a specific Limit Sell price "
+        "and a Trailing Buy Stop Loss (either in price or percentage). If no definitive trading signal is found, respond "
+        "with 'None'. Where possible explain the rationale, define the support and resistance  levels, and include a "
+        "short bio of the ticker at the top of the response. Use the attached CSV file for performing the analysis:"
+    )
+
+    # Initialize the OpenAI client
+
+    client = Groq()
+    try:
+        # Create a chat completion request using the system and user messages
+        response = client.chat.completions.create(
+          model="llama-3.3-70b-versatile",
+          messages=[
+            {
+              "role": "system",
+              "content": system_prompt
+            },
+            {
+              "role": "user",
+              "content": csv_data
+            }
+          ],
+          temperature=1,
+          top_p=1,
+          stream=False,
+          stop=None
+        )
+
+        # Return the final response text from the AI
+        return completion.choices[0].message.content, None
+    except Exception as e:
+        return None, f"OpenAI Error! You probably don't have the model {model} available to your key. {str(e)}"
+
+
 
 
 def open_ai_anaysis(api_key, model, ticker, csv_data):
